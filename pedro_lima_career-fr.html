@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pedro Lima — Career · #53</title>
+<title>Pedro Lima — Carrière · #53</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
 <style>
@@ -170,6 +170,8 @@ section { padding: 7rem 3rem; }
 .wc-cond { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .rain { color: var(--blue); }
 .sun { color: var(--yellow); }
+.wind { color: #9fb8c9; }
+.mixed { color: var(--orange); }
 .final-standing { background: var(--black); border: 1px solid rgba(232,78,27,0.25); padding: 2rem; margin-top: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
 .fs-num { font-family: Arial Black, sans-serif; font-size: 3.5rem; font-weight: 900; color: var(--orange); line-height: 1; }
 .fs-text strong { display: block; font-size: 1rem; color: var(--white); font-weight: 700; margin-bottom: 0.2rem; }
@@ -206,23 +208,6 @@ section { padding: 7rem 3rem; }
 .phead { font-size: 0.88rem; font-weight: 700; color: var(--white); line-height: 1.4; margin-bottom: 0.45rem; }
 .pex { font-size: 0.74rem; color: var(--gray); line-height: 1.5; font-style: italic; }
 
-/* FOOTER */
-footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); padding: 5rem 3rem 2.5rem; }
-.ft-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 2rem; }
-.ft-brand h2 { font-family: Arial Black, sans-serif; font-size: 2.3rem; font-weight: 900; color: var(--orange); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-.ft-brand p { font-size: 0.85rem; color: var(--gray); font-style: italic; line-height: 1.65; max-width: 230px; }
-.ft-col-lbl { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem; }
-.ft-nav { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-.ft-nav a { font-size: 0.87rem; color: rgba(255,255,255,0.45); transition: color 0.2s; }
-.ft-nav a:hover { color: var(--white); }
-.ft-email { font-family: Arial Black, sans-serif; font-size: 0.92rem; font-weight: 900; color: var(--orange); margin-bottom: 0.45rem; word-break: break-all; }
-.ft-socials { display: flex; gap: 1.1rem; flex-wrap: wrap; margin-top: 0.9rem; }
-.ft-soc { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-.ft-soc:hover { color: var(--orange); border-color: var(--orange); }
-.ft-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.ft-copy { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
-.ft-num { font-family: Arial Black, sans-serif; font-size: 1.2rem; font-weight: 900; color: rgba(232,78,27,0.18); }
-
 /* PLACEHOLDER */
 .ph { width: 100%; height: 100%; background: var(--black-4); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; }
 .ph svg { width: 30px; height: 30px; fill: none; stroke: #333; stroke-width: 1.5; }
@@ -239,10 +224,27 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
   .winter-cards{grid-template-columns:repeat(2,1fr)}
   .press-grid{grid-template-columns:1fr}
   .goals-grid{grid-template-columns:1fr}
-  .ft-top{grid-template-columns:1fr;gap:2rem}
   .pgrid{grid-template-columns:1fr!important}
   .chart-wrap{padding:0 1.5rem 5rem}
   .results-table{font-size:0.74rem}
+
+  /* HERO MOBILE FIX */
+  .hero{ height:100svh; min-height:600px; align-items:flex-start; }
+  .hero-content{ padding:7rem 1.5rem 3rem; }
+  .hero-sig{ width:clamp(90px,22vw,140px); top:6%; left:5%; }
+  .hero-eyebrow{ font-size:0.58rem; letter-spacing:0.22em; margin-bottom:0.6rem; }
+  .hero-name{ font-size:clamp(3.2rem,16vw,5.5rem); margin-bottom:0.8rem; }
+  .hero-sub{ font-size:0.85rem; margin-bottom:1.8rem; }
+  .hero-row{ gap:1.5rem; }
+  .hstat-val{ font-size:2.1rem; }
+  .hnext-val{ font-size:1.1rem; }
+  .scroll-hint{ bottom:1rem; }
+}
+
+@media(max-width:480px){
+  .hero-name{ font-size:clamp(2.6rem,15vw,4rem); }
+  .hero-row{ gap:1.1rem; }
+  .hdiv{ display:none; }
 }
 </style>
 </head>
@@ -264,11 +266,11 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
     <span class="nav-num">#53</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+    <li><a href="#about">À propos</a></li>
     <li><a href="#karting">Karting</a></li>
-    <li><a href="#f4brazil">F4 Brazil</a></li>
+    <li><a href="#f4brazil">F4 Brésil</a></li>
     <li><a href="#europe">Europe</a></li>
-    <li><a href="#goals">Goals</a></li>
+    <li><a href="#goals">Objectifs</a></li>
   </ul>
 </nav>
 
@@ -290,32 +292,32 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
   </svg>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">🇧🇷 &nbsp;Official Driver — Van Amersfoort Racing · 2026 Career Highlights</div>
+    <div class="hero-eyebrow">🇧🇷 &nbsp;Pilote Officiel — Van Amersfoort Racing · Saison 2026</div>
     <h1 class="hero-name">Pedro<span class="wh">Lima</span></h1>
-    <p class="hero-sub">A career built lap by lap. &nbsp;<strong>From karting podiums to the youngest race winner in Brazilian F4 history.</strong></p>
+    <p class="hero-sub">Une carrière bâtie tour après tour. &nbsp;<strong>Des podiums en karting au plus jeune vainqueur de l'histoire de la F4 brésilienne.</strong></p>
     <div class="hero-row">
       <div class="hstat">
         <span class="hstat-val">2<span class="o">×</span></span>
-        <span class="hstat-lbl">F4 Brazil Race Wins</span>
+        <span class="hstat-lbl">Victoires F4 Brésil</span>
       </div>
       <div class="hdiv"></div>
       <div class="hstat">
         <span class="hstat-val">11</span>
-        <span class="hstat-lbl">Career Podiums</span>
+        <span class="hstat-lbl">Podiums en Carrière</span>
       </div>
       <div class="hdiv"></div>
       <div class="hstat">
-        <span class="hstat-val">3<span class="o">rd</span></span>
-        <span class="hstat-lbl">F4 Brazil 2025</span>
+        <span class="hstat-val">3<span class="o">e</span></span>
+        <span class="hstat-lbl">F4 Brésil 2025</span>
       </div>
       <div class="hdiv"></div>
       <div>
-        <div class="hnext-lbl">Next Target</div>
-        <div class="hnext-val">F4 Macau · Nov 2026</div>
+        <div class="hnext-lbl">Prochain Objectif</div>
+        <div class="hnext-val">F4 Macao · Nov 2026</div>
       </div>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
+  <div class="scroll-hint">Défiler</div>
 </section>
 
 <!-- TICKER -->
@@ -324,19 +326,19 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
     <span class="ti">Pedro Lima</span><span class="ts">✦</span>
     <span class="ti">#53</span><span class="ts">✦</span>
     <span class="ti">VAR Racing</span><span class="ts">✦</span>
-    <span class="ti">Youngest F4 Brazil Winner</span><span class="ts">✦</span>
-    <span class="ti">11 Career Podiums</span><span class="ts">✦</span>
-    <span class="ti">F4 Macau 2026</span><span class="ts">✦</span>
+    <span class="ti">Plus Jeune Vainqueur F4 Brésil</span><span class="ts">✦</span>
+    <span class="ti">11 Podiums en Carrière</span><span class="ts">✦</span>
+    <span class="ti">F4 Macao 2026</span><span class="ts">✦</span>
     <span class="ti">FRECA 2027</span><span class="ts">✦</span>
-    <span class="ti">São Paulo · Brazil 🇧🇷</span><span class="ts">✦</span>
+    <span class="ti">São Paulo · Brésil 🇧🇷</span><span class="ts">✦</span>
     <span class="ti">Pedro Lima</span><span class="ts">✦</span>
     <span class="ti">#53</span><span class="ts">✦</span>
     <span class="ti">VAR Racing</span><span class="ts">✦</span>
-    <span class="ti">Youngest F4 Brazil Winner</span><span class="ts">✦</span>
-    <span class="ti">11 Career Podiums</span><span class="ts">✦</span>
-    <span class="ti">F4 Macau 2026</span><span class="ts">✦</span>
+    <span class="ti">Plus Jeune Vainqueur F4 Brésil</span><span class="ts">✦</span>
+    <span class="ti">11 Podiums en Carrière</span><span class="ts">✦</span>
+    <span class="ti">F4 Macao 2026</span><span class="ts">✦</span>
     <span class="ti">FRECA 2027</span><span class="ts">✦</span>
-    <span class="ti">São Paulo · Brazil 🇧🇷</span><span class="ts">✦</span>
+    <span class="ti">São Paulo · Brésil 🇧🇷</span><span class="ts">✦</span>
   </div>
 </div>
 
@@ -346,35 +348,35 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
     <div>
       <h2 class="about-h">Pedro<br><span class="wh">Lima</span></h2>
       <p class="about-body">
-        Born <strong>April 19, 2010</strong> in São Paulo, Pedro Alves de Lima began karting at age 12. By <strong>15</strong>, he had become the <strong>youngest driver ever to win a race in BRB Fórmula 4 Brasil</strong> — taking pole, leading every lap, and crossing the line just 0.053s clear of the field at Velocitta.
+        Né le <strong>19 avril 2010</strong> à São Paulo, Pedro Alves de Lima a commencé le karting à 12 ans. À <strong>15 ans</strong>, il est devenu le <strong>plus jeune pilote à remporter une course de l'histoire de la BRB Fórmula 4 Brasil</strong> — pole position, en tête du début à la fin, et une ligne d'arrivée franchie avec seulement 0,053s d'avance à Velocitta.
         <br><br>
-        He closed his rookie F4 Brazil season with <strong>11 podiums across 21 races</strong> and finished <strong>3rd overall</strong> in the championship. In 2026 he signed with Dutch powerhouse <strong>Van Amersfoort Racing</strong> to begin his European campaign, carrying car <strong>#53</strong> through the F4 Winter Series, Italian F4 and EuroF4.
+        Il a terminé sa saison rookie en F4 Brésil avec <strong>11 podiums en 21 courses</strong> et une <strong>3e place</strong> au championnat. En 2026, il a signé avec l'écurie néerlandaise <strong>Van Amersfoort Racing</strong> pour débuter sa campagne européenne, au volant de la voiture <strong>#53</strong> en F4 Winter Series, F4 Italie et EuroF4.
       </p>
-      <div class="about-meta">📅 &nbsp;April 19, 2010 &nbsp;·&nbsp; São Paulo, Brazil &nbsp;🇧🇷 &nbsp;·&nbsp; Karting since 2022</div>
+      <div class="about-meta">📅 &nbsp;19 avril 2010 &nbsp;·&nbsp; São Paulo, Brésil &nbsp;🇧🇷 &nbsp;·&nbsp; Karting depuis 2022</div>
     </div>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats-band">
-  <div class="sc"><div class="sc-num">2<span class="o">×</span></div><div class="sc-desc">F4 Brazil Wins</div><div class="sc-sub">1st & 2nd career victories</div></div>
-  <div class="sc"><div class="sc-num">11</div><div class="sc-desc">Career Podiums</div><div class="sc-sub">in 21 F4 Brazil races</div></div>
-  <div class="sc"><div class="sc-num">0<span class="o">s</span>053</div><div class="sc-desc">Margin of Victory</div><div class="sc-sub">Velocitta — historic finish</div></div>
-  <div class="sc"><div class="sc-num">15<span class="o">y</span></div><div class="sc-desc">Youngest Ever Winner</div><div class="sc-sub">BRB F4 Brazil record</div></div>
+  <div class="sc"><div class="sc-num">2<span class="o">×</span></div><div class="sc-desc">Victoires F4 Brésil</div><div class="sc-sub">1re et 2e victoires en carrière</div></div>
+  <div class="sc"><div class="sc-num">11</div><div class="sc-desc">Podiums en Carrière</div><div class="sc-sub">en 21 courses de F4 Brésil</div></div>
+  <div class="sc"><div class="sc-num">0<span class="o">s</span>053</div><div class="sc-desc">Marge de Victoire</div><div class="sc-sub">Velocitta — arrivée historique</div></div>
+  <div class="sc"><div class="sc-num">15<span class="o">a</span></div><div class="sc-desc">Plus Jeune Vainqueur</div><div class="sc-sub">record de la F4 Brésil</div></div>
 </div>
 
 <!-- KARTING -->
 <section class="kart-sec" id="karting">
-  <span class="lbl">Foundations</span>
+  <span class="lbl">Les Fondations</span>
   <h2 class="sec-title">Karting<em>2023 — 2024</em></h2>
   <div class="kart-grid" style="grid-template-columns:1fr;max-width:800px">
     <div>
       <ul class="kart-list">
         <li class="ki"><span class="ki-icon">🏆</span><div><strong>Copa Brasil de Kart — Champion</strong><span>2024</span></div></li>
         <li class="ki"><span class="ki-icon">🏆</span><div><strong>Open do Brasileiro de Kart — Champion</strong><span>2023</span></div></li>
-        <li class="ki"><span class="ki-icon">🥈</span><div><strong>Brazilian Kart Championship — Runner-up</strong><span>2023</span></div></li>
-        <li class="ki"><span class="ki-icon">🥈</span><div><strong>Troféu Ayrton Senna de Kart — Runner-up</strong><span>2024</span></div></li>
-        <li class="ki"><span class="ki-icon">🌎</span><div><strong>SKUSA SuperNationals — 2nd in Qualifying</strong><span>Las Vegas, USA · 2024</span></div></li>
+        <li class="ki"><span class="ki-icon">🥈</span><div><strong>Championnat Brésilien de Kart — Vice-champion</strong><span>2023</span></div></li>
+        <li class="ki"><span class="ki-icon">🥈</span><div><strong>Trophée Ayrton Senna de Kart — Vice-champion</strong><span>2024</span></div></li>
+        <li class="ki"><span class="ki-icon">🌎</span><div><strong>SKUSA SuperNationals — 2e en qualifications</strong><span>Las Vegas, USA · 2024</span></div></li>
       </ul>
     </div>
   </div>
@@ -383,34 +385,34 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
 <!-- F4 BRAZIL -->
 <section id="f4brazil">
   <div class="f4b-head">
-    <h2 class="f4b-h">Formula<br>4<span class="sub-em">Brazil</span></h2>
+    <h2 class="f4b-h">Formula<br>4<span class="sub-em">Brésil</span></h2>
     <div class="f4b-year">2025 🇧🇷</div>
   </div>
-  <p class="sec-intro">Pedro's rookie season in Brazil's FIA-sanctioned junior single-seater category. The youngest driver on the grid finished <strong>3rd in the championship</strong>, claimed <strong>two race wins</strong>, his first pole position, and 11 podiums across 21 starts — racing for Starrett Bassani F4.</p>
+  <p class="sec-intro">La saison rookie de Pedro dans la catégorie junior monoplace homologuée FIA du Brésil. Plus jeune pilote du plateau, il a terminé <strong>3e du championnat</strong>, remporté <strong>deux courses</strong>, décroché sa première pole position, et signé 11 podiums en 21 départs — au volant de la Starrett Bassani F4.</p>
 
   <div class="feito">
-    <div class="ftag">⭐ Historic Milestone — Velocitta, Round 3</div>
-    <p>Starting from <strong>pole position</strong>, Pedro led every lap of Race 3 and held off reigning championship leader Heitor Dall'Agnol to the flag, winning by just <strong>0.053 seconds</strong> — also picking up the point for fastest lap. The result made him the <strong>youngest driver ever to win a BRB Fórmula 4 Brasil race.</strong></p>
+    <div class="ftag">⭐ Moment Historique — Velocitta, Manche 3</div>
+    <p>Parti en <strong>pole position</strong>, Pedro a mené chaque tour de la Course 3 et résisté au leader du championnat Heitor Dall'Agnol jusqu'au drapeau, l'emportant avec seulement <strong>0,053 seconde</strong> d'avance — décrochant aussi le point du meilleur tour. Ce résultat a fait de lui le <strong>plus jeune pilote à remporter une course dans l'histoire de la BRB Fórmula 4 Brasil.</strong></p>
   </div>
 
   <div class="tbl-wrap">
     <table class="results-table">
       <thead>
-        <tr><th>Round</th><th>Circuit</th><th>Best Result</th><th>Notes</th></tr>
+        <tr><th>Manche</th><th>Circuit</th><th>Meilleur Résultat</th><th>Notes</th></tr>
       </thead>
       <tbody>
-        <tr><td>Round 1</td><td>Interlagos, São Paulo</td><td>9th</td><td>Season debut, youngest driver on the grid</td></tr>
-        <tr><td>Round 2</td><td>Velocitta, Mogi Guaçu</td><td class="pos-podium">3rd</td><td>First career podium</td></tr>
-        <tr><td>Round 3</td><td>Velocitta, Mogi Guaçu</td><td class="pos-win">1st</td><td>Pole + win, margin 0s053 — youngest ever F4 Brazil winner</td></tr>
-        <tr><td>Round 4</td><td>Interlagos, São Paulo</td><td class="pos-podium">3rd</td><td>Podium during F1 São Paulo GP preliminary event</td></tr>
-        <tr><td>Round 5</td><td>Interlagos, São Paulo</td><td class="pos-win">1st</td><td>2nd career win — crucial result in title run-in</td></tr>
-        <tr><td>Final Round</td><td>Interlagos, São Paulo</td><td class="pos-podium">3rd</td><td>Closed season 3rd overall in points</td></tr>
+        <tr><td>Manche 1</td><td>Interlagos, São Paulo</td><td>9e</td><td>Début de saison, plus jeune pilote du plateau</td></tr>
+        <tr><td>Manche 2</td><td>Velocitta, Mogi Guaçu</td><td class="pos-podium">3e</td><td>Premier podium en carrière</td></tr>
+        <tr><td>Manche 3</td><td>Velocitta, Mogi Guaçu</td><td class="pos-win">1er</td><td>Pole + victoire, marge de 0s053 — plus jeune vainqueur de l'histoire de la F4 Brésil</td></tr>
+        <tr><td>Manche 4</td><td>Interlagos, São Paulo</td><td class="pos-podium">3e</td><td>Podium lors de l'épreuve préliminaire du GP de F1 de São Paulo</td></tr>
+        <tr><td>Manche 5</td><td>Interlagos, São Paulo</td><td class="pos-win">1er</td><td>2e victoire en carrière — résultat décisif dans la lutte pour le titre</td></tr>
+        <tr><td>Manche Finale</td><td>Interlagos, São Paulo</td><td class="pos-podium">3e</td><td>Saison clôturée à la 3e place du championnat</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="press-tags">
-    <span class="press-tag-lbl">Covered by:</span>
+    <span class="press-tag-lbl">Couvert par :</span>
     <span class="ptag">UOL / Motorsport</span>
     <span class="ptag">Grande Prêmio</span>
     <span class="ptag">Autoracing</span>
@@ -422,8 +424,8 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
 <!-- CHART -->
 <div class="chart-wrap">
   <div class="chart-box">
-    <div class="chart-h"><span>Race-by-Race</span> Trajectory</div>
-    <div class="chart-sub">Finishing positions — F4 Brazil 2025 Season</div>
+    <div class="chart-h"><span>Trajectoire</span> Course par Course</div>
+    <div class="chart-sub">Positions à l'arrivée — Saison F4 Brésil 2025</div>
     <svg viewBox="0 0 900 310" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg">
       <defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
       <line x1="36" y1="26" x2="890" y2="26" stroke="#1c1c1c" stroke-width="1"/>
@@ -466,18 +468,18 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
       <circle cx="855" cy="77" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
       <circle cx="888" cy="60" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
       <rect x="362" y="2" width="120" height="18" rx="2" fill="#E84E1B"/>
-      <text x="422" y="15" text-anchor="middle" fill="#000" font-size="9" font-weight="bold" font-family="Arial">1st Win — Velocitta</text>
+      <text x="422" y="15" text-anchor="middle" fill="#000" font-size="9" font-weight="bold" font-family="Arial">1re Victoire — Velocitta</text>
       <line x1="450" y1="20" x2="450" y2="26" stroke="#E84E1B" stroke-width="1.5"/>
       <rect x="764" y="2" width="110" height="18" rx="2" fill="#f5c800"/>
-      <text x="819" y="15" text-anchor="middle" fill="#000" font-size="9" font-weight="bold" font-family="Arial">2nd Win — Late Season</text>
+      <text x="819" y="15" text-anchor="middle" fill="#000" font-size="9" font-weight="bold" font-family="Arial">2e Victoire — Fin de Saison</text>
       <line x1="820" y1="20" x2="820" y2="26" stroke="#f5c800" stroke-width="1.5"/>
-      <text x="100" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Round 1</text>
-      <text x="253" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Round 2</text>
+      <text x="100" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Manche 1</text>
+      <text x="253" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Manche 2</text>
       <text x="405" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Velocitta</text>
-      <text x="557" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Round 4</text>
-      <text x="684" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">F1 Prelim</text>
-      <text x="820" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Round 5</text>
-      <text x="875" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Final</text>
+      <text x="557" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Manche 4</text>
+      <text x="684" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Prélim. F1</text>
+      <text x="820" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Manche 5</text>
+      <text x="875" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Finale</text>
     </svg>
   </div>
 </div>
@@ -486,20 +488,20 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
 <section class="europe-sec" id="europe">
   <div class="europe-grid" style="grid-template-columns:1fr;max-width:800px">
     <div>
-      <span class="lbl">European Campaign 2026 🇮🇹</span>
+      <span class="lbl">Campagne Européenne 2026 🇮🇹</span>
       <h2 class="sec-title">VAR<em>Van Amersfoort Racing</em></h2>
       <div class="var-block">
         <div class="var-badge">VAR</div>
         <div class="var-info">
           <strong>Van Amersfoort Racing</strong>
-          <span>Official driver · Europe 2026</span>
+          <span>Pilote officiel · Europe 2026</span>
         </div>
       </div>
-      <p style="font-size:0.96rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.62);margin-bottom:2.5rem;max-width:460px">Following his breakout rookie year in Brazil, Pedro signed with Dutch single-seater powerhouse Van Amersfoort Racing for a full European campaign in 2026 — racing car #53 across three championships.</p>
+      <p style="font-size:0.96rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.62);margin-bottom:2.5rem;max-width:460px">Après sa saison rookie remarquée au Brésil, Pedro a signé avec l'écurie néerlandaise Van Amersfoort Racing pour une campagne européenne complète en 2026 — au volant de la voiture #53 sur trois championnats.</p>
       <ul class="camp-list">
-        <li class="camp-item"><span class="camp-flag">🇵🇹🇪🇸</span><div class="camp-info"><strong>F4 Winter Series</strong><em>Completed — Jan to Mar 2026</em><span>10th overall, 62 points, four 4th-place finishes across 15 races</span></div></li>
-        <li class="camp-item"><span class="camp-flag">🇮🇹</span><div class="camp-info"><strong>Italian F4 Championship</strong><em>May – Oct 2026</em><span>World-reference category for junior single-seaters</span></div></li>
-        <li class="camp-item"><span class="camp-flag">🇮🇹</span><div class="camp-info"><strong>EuroF4 (E4) Championship</strong><em>May – Oct 2026</em><span>Parallel series run alongside the Italian F4 calendar</span></div></li>
+        <li class="camp-item"><span class="camp-flag">🇵🇹🇪🇸</span><div class="camp-info"><strong>F4 Winter Series</strong><em>Terminée — Janv. à Mars 2026</em><span>10e au général, 62 points, quatre 4e places en 15 courses</span></div></li>
+        <li class="camp-item"><span class="camp-flag">🇮🇹</span><div class="camp-info"><strong>Championnat F4 Italie</strong><em>Mai – Oct 2026</em><span>Catégorie de référence mondiale chez les monoplaces juniors</span></div></li>
+        <li class="camp-item"><span class="camp-flag">🇮🇹</span><div class="camp-info"><strong>Championnat EuroF4 (E4)</strong><em>Mai – Oct 2026</em><span>Compétition parallèle au calendrier de la F4 Italie</span></div></li>
       </ul>
     </div>
   </div>
@@ -507,29 +509,36 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
 
 <!-- WINTER SERIES RESULTS -->
 <section class="winter-sec">
-  <span class="lbl">F4 Winter Series 2026 — Final Standings</span>
-  <h2 class="sec-title">First Season<em>in Europe</em></h2>
-  <p class="sec-intro">Pedro's European debut spanned five rounds across Portugal and Spain against a 45-driver field — his first taste of FIA-graded European competition, in mixed wet and dry conditions.</p>
-  <div class="winter-cards">
-    <div class="wc"><div class="wc-res">23rd</div><div class="wc-ev">Estoril</div><div class="wc-cir">Portugal</div><div class="wc-cond rain">🌧 Wet</div></div>
-    <div class="wc"><div class="wc-res">Top 10</div><div class="wc-ev">Portimão</div><div class="wc-cir">Portugal</div><div class="wc-cond rain">🌧 Wet</div></div>
-    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Valencia</div><div class="wc-cir">Spain</div><div class="wc-cond sun">☀ Dry</div></div>
-    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Aragón</div><div class="wc-cir">Spain</div><div class="wc-cond sun">☀ Dry</div></div>
-    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Barcelona</div><div class="wc-cir">Spain</div><div class="wc-cond sun">☀ Dry</div></div>
+  <span class="lbl">F4 Winter Series 2026 — Classement Final</span>
+  <h2 class="sec-title">À l'Épreuve<em>de la Météo</em></h2>
+  <p class="sec-intro">Les débuts européens de Pedro lui ont tout fait subir — pluie torrentielle au Portugal, vents violents en Espagne, et une finale de saison oscillant entre piste sèche et piste détrempée. Sur cinq manches et face à 45 rivaux, il n'a jamais cessé de se battre.</p>
+
+  <div class="feito" style="border-left-color:var(--blue)">
+    <div class="ftag" style="color:var(--blue)">🌧 Bataille Météo — Estoril & Portimão</div>
+    <p>Les débuts européens de Pedro se sont déroulés sous une pluie incessante. En Course 2 à Estoril, il est remonté de la <strong>31e à la 13e place</strong> sur pneus slicks, sur une piste détrempée — puis en Course 3, sous la pluie toujours présente, il est passé de la <strong>18e à la 9e place</strong> derrière la voiture de sécurité, lisant le chaos mieux que presque tout le monde sur la grille. Deux manches plus tard à Portimão : encore de la pluie, encore des remontées, encore des points engrangés dans des conditions brutales.</p>
   </div>
+
+  <div class="winter-cards">
+    <div class="wc"><div class="wc-res">23e</div><div class="wc-ev">Estoril</div><div class="wc-cir">Portugal</div><div class="wc-cond rain">🌧 Pluie Battante</div></div>
+    <div class="wc"><div class="wc-res">Top 10</div><div class="wc-ev">Portimão</div><div class="wc-cir">Portugal</div><div class="wc-cond rain">🌧 Piste Mouillée</div></div>
+    <div class="wc"><div class="wc-res">4e</div><div class="wc-ev">Valence</div><div class="wc-cir">Espagne</div><div class="wc-cond wind">💨 Vent Violent</div></div>
+    <div class="wc"><div class="wc-res">4e</div><div class="wc-ev">Aragón</div><div class="wc-cir">Espagne</div><div class="wc-cond sun">☀ Sec</div></div>
+    <div class="wc"><div class="wc-res">4e</div><div class="wc-ev">Barcelone</div><div class="wc-cir">Espagne</div><div class="wc-cond mixed">⛅ Conditions Mixtes</div></div>
+  </div>
+
   <div class="final-standing">
-    <div class="fs-num">10<span style="font-size:1.4rem">th</span></div>
+    <div class="fs-num">10<span style="font-size:1.4rem">e</span></div>
     <div class="fs-text">
-      <strong>Final Championship Standing — 62 points</strong>
-      <span>15 races completed · four 4th-place finishes · narrowly missed his first European podium by inches at Valencia</span>
+      <strong>Classement Final du Championnat — 62 points</strong>
+      <span>15 courses disputées entre pluie, vent et piste sèche · quatre 4e places · premier podium européen manqué de justesse à Valence · remontée de dix places en une seule course à Barcelone</span>
     </div>
   </div>
 </section>
 
 <!-- QUOTE -->
 <div class="quote-sec">
-  <p class="bq">"I don't see myself as extremely talented — but I work extremely hard."</p>
-  <p class="qa">Pedro Lima &nbsp;·&nbsp; #53 &nbsp;·&nbsp; VAR Racing &nbsp;·&nbsp; after his first F4 Brazil win, Velocitta 2025</p>
+  <p class="bq">« Je ne me considère pas comme extrêmement talentueux — mais je travaille extrêmement dur. »</p>
+  <p class="qa">Pedro Lima &nbsp;·&nbsp; #53 &nbsp;·&nbsp; VAR Racing &nbsp;·&nbsp; après sa première victoire en F4 Brésil, Velocitta 2025</p>
 </div>
 
 <!-- GOALS -->
@@ -545,52 +554,52 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
     <path fill="url(#goalsLogoGrad1)" d="M27.58,122.87c-3.72,10.94-7.08,22.04-10.48,33.17-2.1,6.07-3.39,12.36-6.62,17.23-.14.08-.25,0-.3-.2-.08-.59-.07-1.16.03-1.88.36-3.21,2-10.51,4.22-17.91,1.28-4.3,2.61-8.59,3.92-12.89,2.7-11.02,11.21-27.64.25-32.79-5.57-2.65-15.62-2.36-17.97-7.23-5.59-13.53,27.98-41.42,37.29-49.69,12.37-10.11,25.49-20.32,40-27.44,13.47-6.34,28.32-7.48,42.13-12.43C130.6,7.35,141.31.74,152.42,0c19.68-.02-1.7,18.46-7.78,22.99-27.92,23.39-58.68,43.84-88.53,64.88-14.53,10.93-19.35,27.68-24.29,44.87-5.07,16.08-10.98,32-16.08,48.07-1.65,5.23-6.82,19.01-7.8,19.67-.44.46-.47-.4-.08-2.43.26-1.35.71-3.21,1.33-5.43,7.03-25.04,17.46-49.6,23.25-74.91,1.19-5.98.65-7.58-1.13-4.14-1.39,2.79-2.3,5.31-3.6,8.94l-.13.37ZM7.59,103.71c8.09.2,16.13-1.8,23.44-5.64.34-.18.67-.38.99-.61,1.44-1.05,2.77-2.28,4.11-3.44.96-.88,1.77-1.76,2.68-2.55,2.39-2.09,10.15-12.07,12.26-14.6.82-1.35,5.68-4.94,5.53-1.79-.22,1.15-7.86,9.05-8.51,10.05-3.53,5.77,1.22,3.53,4.08,1.49,35.31-22.53,69.18-47.89,100.11-76.09,4.2-4.41-4.27-3.84-6.66-3.41-13.3,2.41-24.44,10.31-36.14,16.58-24.62,13.96-49.68,28.88-72.23,45.9-.41,0-.38-.45.12-1.16,4.35-4.99,9.89-9.21,15.35-13,14.39-9.75,29.42-18.09,43.92-27.58,1.22-1.2.54-2.44-.79-2.81-10.64-3.07-29.37,12.11-38.66,17.8-17.31,12.71-33.42,27.15-47.07,43.74-2.74,3.96-6.42,7.76-7.79,12.45-.34,2.73,2.52,4.62,5,4.64l.26.02Z"/>
     <path fill="url(#goalsLogoGrad2)" d="M93.03,123.11c-3.77,3.75-7.38,14.74-14.19,11.24-2.14-1.29-2.97-4.57-4.88-5.32-2.38-.9-4.87.74-7.06,1.61-3.66,1.71-7.36,2.03-9.91,4.83-6.21,10.4-9.8,22.34-15.47,33.17-2.09,4.78-5.46,11,3.63,7.9,6.68-2.21,16.19-7.62,22.47-11.05,3.38-1.93,5.6-2.7,9.06-3.82,5.73-1.75,11.16-4.89,17.04-6.56,10.55-2.88,20.87-7.45,31.82-8.82,2.89-.69,10.56.62,4.29,3.54-12.44,2.33-23.95,6.25-35.65,10.8-12.17,3.96-24.09,9.43-35.68,15.03-7.29,4.11-13.51,9.14-22.03,10.87-2.63.55-4.97.49-6-1.01-1.07-1.43-.47-4.38.41-6.26,2.05-4.3,4.04-8.48,6.38-12.84,5.47-12.24,11.44-24.39,17.12-36.58,9.53-21.36,18.55-42.23,25.47-64.44,2.16-4.46,1.62-18.54,7.7-18.53,1.12.01,2.9,1.25,3.25,2.12.5,1.02.32,1.98-.03,3.14-1.77,5.39-4.36,10.62-5.95,16.01-3.93,12.47-9.65,24.56-14.81,36.63-1.06,3.61-13.05,22.06-2.54,18.57,3.37-1.49,6.1-4.11,7.67-6.91,1.72-2.95,4.6-9.94,8.79-6.38,2.21,1.99.98,4.96.94,7.94.58,7.25,8.75-5.98,11.08-6.07,4.56-3.02,9.01,3.96,13.21.06,3.81-2.91,6.06-8.43,10.79-9.61,5.84.07,2.56,10.93,10.06,5.82,2.92-1.82,6.07-3.15,9.31-1.66,2.16.89,4.25,2.37,6.68,2.27,5.47-.57,9.71-6.34,15.65-6.12,16.2-.16,10.54,17.21,36.73,8.9,1.63-.42,3.86-1.36,5.32-.41,1.18,1.97-2.58,4.24-4.21,5.1-8.57,4.44-18.19,4-26.75-.15-4.52-1.66-6.96,2.65-9.06,6.03-3.19,4.59-8.07,9.22-14.08,8.36-5.23-.82-10.49-4.79-11.13-9.6-.58-2.51.54-6.24-1.82-7.95-7.39-2.19-9.43,9.8-15.63,11.22-1.74.44-3.6-.54-3.98-2.34-.65-2.15,1-7.56-.51-8.74-1.16-.65-2.49,1.25-3.19,2.09-3.3,3.52-5.04,18.37-12.06,14.74-2.6-1.69-1.25-7.84-3.99-9.03-1.58-.39-2.97.89-3.98,1.96l-.25.28ZM155.99,121.74c2.11-1.96,3.57-4.57,4.83-7.22,1.77-2.98.8-4.47-2.82-3.44-1.38.42-2.5,1.27-3.75,1.93-3.18,1.77-8.04,2.31-8.85,6.22-.55,7.13,6.51,6.9,10.35,2.73l.23-.22Z"/>
   </svg>
-  <span class="lbl">What's Next</span>
-  <h2 class="sec-title">The Road<em>Ahead</em></h2>
-  <p class="sec-intro">Two defining targets anchor Pedro's path toward Formula 1's junior ladder — a global showcase event in Asia, and a step up to one of Europe's most competitive Formula Regional categories.</p>
+  <span class="lbl">Et Maintenant ?</span>
+  <h2 class="sec-title">La Route<em>à Suivre</em></h2>
+  <p class="sec-intro">Deux objectifs majeurs marquent le chemin de Pedro vers l'échelon junior de la Formule 1 — un événement vitrine mondial en Asie, et un saut vers l'une des catégories Formule Régionale les plus compétitives d'Europe.</p>
 
   <div class="goals-grid">
     <div class="goal-card">
-      <div class="goal-num">TARGET 01</div>
+      <div class="goal-num">OBJECTIF 01</div>
       <div class="goal-flag">🇲🇴</div>
-      <div class="goal-title">F4 Macau</div>
-      <div class="goal-year">November 2026</div>
-      <p class="goal-desc">One of the most prestigious invitational events on the junior single-seater calendar, raced on the legendary <strong>Guia street circuit</strong> — a proving ground that has launched the careers of multiple future F1 drivers.</p>
+      <div class="goal-title">F4 Macao</div>
+      <div class="goal-year">Novembre 2026</div>
+      <p class="goal-desc">L'un des événements sur invitation les plus prestigieux du calendrier monoplace junior, disputé sur le légendaire <strong>circuit urbain de Guia</strong> — un tremplin qui a lancé la carrière de nombreux futurs pilotes de F1.</p>
       <ul class="goal-facts">
-        <li>Invitational grid featuring top F4 talent from championships worldwide</li>
-        <li>Raced on the same street circuit as the iconic Macau Grand Prix</li>
-        <li>A statement event to close out Pedro's first full season in Europe</li>
+        <li>Grille sur invitation réunissant les meilleurs talents F4 du monde entier</li>
+        <li>Disputé sur le même circuit urbain que le célèbre Grand Prix de Macao</li>
+        <li>Un événement marquant pour clore la première saison complète de Pedro en Europe</li>
       </ul>
-      <span class="goal-target">Confirmed Objective · 2026</span>
+      <span class="goal-target">Objectif Confirmé · 2026</span>
     </div>
 
     <div class="goal-card">
-      <div class="goal-num">TARGET 02</div>
+      <div class="goal-num">OBJECTIF 02</div>
       <div class="goal-flag">🇪🇺</div>
       <div class="goal-title">FRECA</div>
-      <div class="goal-year">2027 Season</div>
-      <p class="goal-desc">The step up to <strong>Formula Regional European Championship</strong> — the natural progression from F4, and one of the clearest pathways into FIA Formula 3 and the Road to F1.</p>
+      <div class="goal-year">Saison 2027</div>
+      <p class="goal-desc">Le passage au <strong>Championnat de Formule Régionale Européenne</strong> — la progression naturelle depuis la F4, et l'une des voies les plus claires vers la F3 FIA et la route vers la F1.</p>
       <ul class="goal-facts">
-        <li>Higher-powered, higher-downforce cars closer to F3 specification</li>
-        <li>Grid regularly featuring future F2 and F1-bound prospects</li>
-        <li>Planned progression following a full 2026 European F4 campaign</li>
+        <li>Voitures plus puissantes, avec plus d'appui aérodynamique, proches des spécifications F3</li>
+        <li>Grille régulièrement composée de futurs talents F2 et F1</li>
+        <li>Progression prévue après une saison complète de F4 européenne en 2026</li>
       </ul>
-      <span class="goal-target">2027 Objective</span>
+      <span class="goal-target">Objectif 2027</span>
     </div>
   </div>
 </section>
 
 <!-- PRESS -->
 <section class="press-sec">
-  <span class="lbl">Media Coverage</span>
-  <h2 class="sec-title">In<br>The<em>Press</em></h2>
+  <span class="lbl">Couverture Médiatique</span>
+  <h2 class="sec-title">Dans<br>La<em>Presse</em></h2>
   <div class="press-grid">
-    <div class="pcard"><div class="psrc">UOL / Motorsport</div><div class="phead">Oakberry Bassani F4 confirms Pedro Lima for the 2025 F4 Brazil season</div><div class="pex">At just 14, the driver will contest his first season in the country's top single-seater junior category</div></div>
-    <div class="pcard"><div class="psrc">Grande Prêmio</div><div class="phead">Lima beats Dall'Agnol by 0.053s to win Race 3 of F4 Brazil at Velocitta</div><div class="pex">Started from pole, led every lap, and held off the championship leader to the chequered flag</div></div>
-    <div class="pcard"><div class="psrc">Autoracing</div><div class="phead">Pedro Lima makes history as youngest-ever F4 Brazil race winner</div><div class="pex">11 podiums in 21 races, 3rd overall — closing one of the standout rookie seasons of the year</div></div>
-    <div class="pcard"><div class="psrc">Autoracing · 2026</div><div class="phead">Pedro Lima signs with Van Amersfoort Racing for full European campaign</div><div class="pex">The 15-year-old confirms his move to Europe after a breakout debut season in Brazil</div></div>
-    <div class="pcard"><div class="psrc">Velocidade no Sangue</div><div class="phead">Pedro Lima fights for the podium, closes Valencia round with two top-5 finishes</div><div class="pex">A 4th, 5th and 8th place across three races marked his strongest weekend yet in Europe</div></div>
-    <div class="pcard"><div class="psrc">Autoracing · Mar 2026</div><div class="phead">Pedro Lima closes F4 Winter Series campaign 10th overall</div><div class="pex">62 points across 15 races in his maiden European season, setting up the Italian F4 and EuroF4 push</div></div>
+    <div class="pcard"><div class="psrc">UOL / Motorsport</div><div class="phead">Oakberry Bassani F4 confirme Pedro Lima pour la saison 2025 de F4 Brésil</div><div class="pex">À seulement 14 ans, le pilote disputera sa première saison dans la principale catégorie monoplace junior du pays</div></div>
+    <div class="pcard"><div class="psrc">Grande Prêmio</div><div class="phead">Lima bat Dall'Agnol de 0,053s pour remporter la Course 3 de F4 Brésil à Velocitta</div><div class="pex">Parti en pole, en tête à chaque tour, il a résisté au leader du championnat jusqu'au drapeau à damier</div></div>
+    <div class="pcard"><div class="psrc">Autoracing</div><div class="phead">Pedro Lima entre dans l'histoire comme le plus jeune vainqueur de la F4 Brésil</div><div class="pex">11 podiums en 21 courses, 3e au général — clôture d'une des saisons rookie les plus marquantes de l'année</div></div>
+    <div class="pcard"><div class="psrc">Autoracing · 2026</div><div class="phead">Pedro Lima signe avec Van Amersfoort Racing pour une campagne européenne complète</div><div class="pex">Le pilote de 15 ans confirme son passage en Europe après une saison de débuts remarquée au Brésil</div></div>
+    <div class="pcard"><div class="psrc">Velocidade no Sangue</div><div class="phead">Pedro Lima se bat pour le podium et termine la manche de Valence avec deux top 5</div><div class="pex">Une 4e, une 5e et une 8e place sur trois courses ont marqué son meilleur week-end en Europe</div></div>
+    <div class="pcard"><div class="psrc">Autoracing · Mars 2026</div><div class="phead">Pedro Lima clôture sa campagne en F4 Winter Series à la 10e place</div><div class="pex">62 points en 15 courses lors de sa première saison européenne, préparant le terrain pour la F4 Italie et l'EuroF4</div></div>
   </div>
 </section>
 
