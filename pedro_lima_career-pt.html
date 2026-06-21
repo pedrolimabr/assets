@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro Lima — Career · #53</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --orange: #E84E1B;
+  --black: #000000;
+  --black-2: #0a0a0a;
+  --black-3: #111111;
+  --black-4: #1a1a1a;
+  --white: #ffffff;
+  --gray: #888888;
+  --gray-dim: #333333;
+  --cyan: #00e5b4;
+  --yellow: #f5c800;
+  --blue: #4a90d9;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'Barlow', Arial, sans-serif; font-size: 16px; line-height: 1.5; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: linear-gradient(to bottom, rgba(0,0,0,0.92) 0%, transparent 100%); transition: background 0.3s; }
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; }
+.nav-sig { width: 38px; height: 38px; }
+.nav-num { font-family: Arial Black, sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--orange); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); border: 1px solid var(--orange); padding: 0.45rem 1.1rem; transition: all 0.2s; }
+.nav-cta:hover { background: var(--orange); color: var(--black); }
+
+/* HERO */
+.hero { position: relative; height: 100vh; min-height: 700px; overflow: hidden; background: var(--black); display: flex; align-items: flex-end; }
+.hero-bg { position: absolute; inset: 0; background: repeating-linear-gradient(174deg, transparent 0px, transparent 38px, rgba(255,255,255,0.016) 39px, rgba(255,255,255,0.016) 40px), radial-gradient(ellipse at 65% 50%, rgba(232,78,27,0.1) 0%, transparent 55%); }
+.hero-ghost { position: absolute; right: -4vw; bottom: -8vh; font-family: Arial Black, sans-serif; font-size: clamp(20rem, 38vw, 54rem); font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(232,78,27,0.07); line-height: 1; pointer-events: none; user-select: none; }
+.hero-sig { position: absolute; top: 14%; left: 4.5%; width: clamp(140px, 16vw, 220px); opacity: 0; animation: fadeUp 0.9s ease 0.2s forwards; }
+.hero-content { position: relative; z-index: 2; padding: 0 3rem 5.5rem; width: 100%; }
+.hero-eyebrow { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.7rem; opacity: 0; animation: fadeUp 0.5s ease 0.5s forwards; }
+.hero-name { font-family: Arial Black, sans-serif; font-size: clamp(5.5rem, 14vw, 15rem); font-weight: 900; line-height: 0.85; letter-spacing: -0.02em; color: var(--orange); margin-bottom: 1rem; opacity: 0; animation: fadeUp 0.7s ease 0.65s forwards; }
+.hero-name .wh { color: var(--white); display: block; }
+.hero-sub { font-size: clamp(0.85rem, 1.4vw, 1.05rem); font-weight: 300; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.5s ease 0.9s forwards; }
+.hero-sub strong { color: var(--white); font-style: normal; font-weight: 700; }
+.hero-row { display: flex; align-items: flex-end; gap: 3rem; opacity: 0; animation: fadeUp 0.5s ease 1.05s forwards; flex-wrap: wrap; }
+.hstat { display: flex; flex-direction: column; gap: 0.1rem; }
+.hstat-val { font-family: Arial Black, sans-serif; font-size: 3rem; font-weight: 900; color: var(--white); line-height: 1; }
+.hstat-val .o { color: var(--orange); }
+.hstat-lbl { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); }
+.hdiv { width: 1px; height: 2.5rem; background: rgba(255,255,255,0.1); align-self: center; }
+.hnext-lbl { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); }
+.hnext-val { font-family: Arial Black, sans-serif; font-size: 1.3rem; font-weight: 900; color: var(--orange); }
+.scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-size: 0.56rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.25); animation: sbounce 2s ease infinite; }
+.scroll-hint::after { content: ''; display: block; width: 1px; height: 2.5rem; background: linear-gradient(to bottom, var(--orange), transparent); }
+@keyframes sbounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+/* TICKER */
+.ticker { background: var(--orange); padding: 0.7rem 0; overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-flex; gap: 2.5rem; animation: tickerRun 26s linear infinite; }
+@keyframes tickerRun { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.ti { font-family: Arial Black, sans-serif; font-size: 0.82rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); flex-shrink: 0; }
+.ts { color: rgba(0,0,0,0.3); font-size: 1.1rem; flex-shrink: 0; align-self: center; }
+
+/* SECTION */
+section { padding: 7rem 3rem; }
+.lbl { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; display: block; }
+.sec-title { font-family: Arial Black, sans-serif; font-size: clamp(3.5rem, 7vw, 7.5rem); font-weight: 900; line-height: 0.88; letter-spacing: -0.02em; color: var(--orange); margin-bottom: 2.5rem; }
+.sec-title .wh { color: var(--white); }
+.sec-title em { font-style: italic; font-size: 0.55em; color: var(--white); display: block; font-weight: 700; }
+.sec-intro { font-size: 0.98rem; font-weight: 300; color: rgba(255,255,255,0.6); max-width: 680px; line-height: 1.8; margin-bottom: 2.5rem; }
+.sec-intro strong { color: var(--orange); font-weight: 700; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1400px; margin: 0 auto; }
+.about-photo { position: relative; height: 580px; }
+.about-main { position: absolute; top: 0; left: 0; width: 80%; height: 510px; background: var(--black-4); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.about-badge { position: absolute; bottom: 2rem; right: 0; background: var(--orange); padding: 1.4rem 1.8rem; }
+.badge-n { font-family: Arial Black, sans-serif; font-size: 4.5rem; font-weight: 900; color: var(--black); line-height: 1; }
+.badge-l { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,0,0,0.55); }
+.about-h { font-family: Arial Black, sans-serif; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 900; color: var(--orange); line-height: 0.88; margin-bottom: 1.5rem; }
+.about-h .wh { color: var(--white); }
+.about-body { font-size: 1rem; font-weight: 300; line-height: 1.85; color: rgba(255,255,255,0.65); margin-bottom: 1.8rem; }
+.about-body strong { color: var(--white); font-weight: 700; }
+.about-meta { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); padding-top: 1.5rem; border-top: 1px solid rgba(232,78,27,0.2); }
+
+/* STATS BAND */
+.stats-band { background: var(--black-3); display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.sc { padding: 2.8rem 2.2rem; border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 0.4rem; transition: background 0.2s; }
+.sc:last-child { border-right: none; }
+.sc:hover { background: rgba(232,78,27,0.05); }
+.sc-num { font-family: Arial Black, sans-serif; font-size: clamp(2.6rem, 4.2vw, 5rem); font-weight: 900; color: var(--white); line-height: 1; }
+.sc-num .o { color: var(--orange); }
+.sc-desc { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); }
+.sc-sub { font-size: 0.78rem; font-style: italic; color: #444; margin-top: 0.2rem; }
+
+/* KARTING */
+.kart-sec { background: var(--black-2); }
+.kart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 1400px; margin: 0 auto; }
+.kart-list { list-style: none; display: flex; flex-direction: column; }
+.ki { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); opacity: 0; transform: translateX(-18px); transition: opacity 0.4s, transform 0.4s; }
+.ki.vis { opacity: 1; transform: translateX(0); }
+.ki-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+.ki strong { display: block; font-size: 0.96rem; font-weight: 700; color: var(--white); margin-bottom: 0.12rem; }
+.ki span { font-size: 0.76rem; color: var(--gray); font-style: italic; }
+.kart-stack { position: relative; height: 480px; }
+.kart-main { position: absolute; top: 0; right: 0; width: 84%; height: 360px; background: var(--black-4); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.kart-small { position: absolute; bottom: 0; left: 0; width: 44%; height: 190px; background: var(--black-3); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 3px solid var(--black-2); }
+
+/* F4 BRAZIL */
+.f4b-head { display: flex; align-items: flex-end; gap: 1.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.f4b-h { font-family: Arial Black, sans-serif; font-size: clamp(4rem, 9vw, 10rem); font-weight: 900; color: var(--orange); line-height: 0.83; letter-spacing: -0.025em; }
+.f4b-h .sub-em { font-size: 0.38em; color: var(--white); font-style: italic; display: block; font-weight: 700; }
+.f4b-year { font-family: Arial Black, sans-serif; font-size: clamp(2rem, 3.5vw, 4rem); font-weight: 900; color: var(--white); align-self: flex-end; padding-bottom: 0.7rem; }
+.feito { background: var(--black-3); border-left: 4px solid var(--orange); padding: 1.7rem 2rem; margin-bottom: 2.5rem; max-width: 820px; }
+.feito .ftag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+.feito p { font-size: 0.96rem; font-weight: 300; color: rgba(255,255,255,0.78); line-height: 1.72; }
+.feito p strong { color: var(--orange); font-weight: 700; }
+
+/* Results table */
+.results-table { width: 100%; border-collapse: collapse; margin: 2.5rem 0; font-size: 0.85rem; }
+.results-table th { text-align: left; padding: 0.8rem 1rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.results-table td { padding: 0.85rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: rgba(255,255,255,0.75); }
+.results-table tr:hover td { background: rgba(232,78,27,0.04); }
+.results-table .pos-win { color: var(--orange); font-weight: 700; }
+.results-table .pos-podium { color: var(--yellow); font-weight: 700; }
+.tbl-wrap { overflow-x: auto; }
+
+.pgrid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4px; height: 360px; border-radius: 3px; overflow: hidden; }
+.press-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; align-items: center; }
+.press-tag-lbl { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-right: 0.3rem; }
+.ptag { font-size: 0.74rem; font-weight: 700; color: rgba(255,255,255,0.45); padding: 0.28rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); }
+
+/* CHART */
+.chart-wrap { padding: 0 3rem 7rem; background: var(--black); }
+.chart-box { background: var(--black-3); padding: 2.5rem; border-radius: 3px; overflow: hidden; }
+.chart-h { font-family: Arial Black, sans-serif; font-size: 1.4rem; font-weight: 900; color: var(--white); margin-bottom: 0.3rem; }
+.chart-h span { color: var(--orange); }
+.chart-sub { font-size: 0.76rem; color: var(--gray); font-style: italic; margin-bottom: 1.8rem; }
+
+/* EUROPE */
+.europe-sec { background: var(--black-2); }
+.europe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 1400px; margin: 0 auto; }
+.var-block { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.var-badge { background: var(--orange); padding: 0.55rem 1.1rem; font-family: Arial Black, sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--black); letter-spacing: -0.03em; }
+.var-info strong { display: block; font-size: 0.95rem; font-weight: 700; color: var(--white); }
+.var-info span { font-size: 0.74rem; color: var(--gray); letter-spacing: 0.06em; text-transform: uppercase; }
+.camp-list { list-style: none; display: flex; flex-direction: column; }
+.camp-item { display: flex; align-items: flex-start; gap: 1.1rem; padding: 1.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.camp-flag { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+.camp-info strong { display: block; font-size: 0.96rem; font-weight: 700; color: var(--white); }
+.camp-info em { font-size: 0.78rem; color: var(--orange); font-style: italic; }
+.camp-info span { display: block; font-size: 0.75rem; color: var(--gray); margin-top: 0.15rem; }
+.europe-photo { height: 500px; background: var(--black-4); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+
+/* WINTER SERIES RESULTS */
+.winter-sec { background: var(--black-3); }
+.winter-cards { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: rgba(255,255,255,0.04); margin-top: 2.5rem; border-radius: 3px; overflow: hidden; }
+.wc { background: var(--black-3); padding: 1.8rem 1.1rem; text-align: center; transition: background 0.2s; }
+.wc:hover { background: rgba(232,78,27,0.07); }
+.wc-res { font-family: Arial Black, sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--orange); margin-bottom: 0.35rem; }
+.wc-ev { font-size: 0.8rem; font-weight: 700; color: var(--white); margin-bottom: 0.12rem; }
+.wc-cir { font-size: 0.7rem; color: var(--gray); font-style: italic; margin-bottom: 0.45rem; }
+.wc-cond { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.rain { color: var(--blue); }
+.sun { color: var(--yellow); }
+.final-standing { background: var(--black); border: 1px solid rgba(232,78,27,0.25); padding: 2rem; margin-top: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.fs-num { font-family: Arial Black, sans-serif; font-size: 3.5rem; font-weight: 900; color: var(--orange); line-height: 1; }
+.fs-text strong { display: block; font-size: 1rem; color: var(--white); font-weight: 700; margin-bottom: 0.2rem; }
+.fs-text span { font-size: 0.85rem; color: var(--gray); }
+
+/* QUOTE */
+.quote-sec { background: var(--orange); padding: 5rem 3rem; text-align: center; }
+.bq { font-family: Arial Black, sans-serif; font-size: clamp(1.7rem, 3.5vw, 3.8rem); font-weight: 900; color: var(--black); line-height: 1.12; max-width: 880px; margin: 0 auto 1.4rem; letter-spacing: -0.01em; }
+.qa { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,0,0,0.45); }
+
+/* GOALS */
+.goals-sec { background: var(--black); position: relative; overflow: hidden; }
+.goals-watermark { position: absolute; top: -8%; right: -6%; width: clamp(260px, 32vw, 480px); opacity: 0.05; pointer-events: none; user-select: none; }
+.goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.06); margin-top: 3rem; border-radius: 3px; overflow: hidden; }
+.goal-card { background: var(--black-3); padding: 3rem 2.5rem; position: relative; transition: background 0.3s; }
+.goal-card:hover { background: #161616; }
+.goal-num { font-family: Arial Black, sans-serif; font-size: 0.85rem; font-weight: 900; letter-spacing: 0.2em; color: var(--gray); margin-bottom: 1.5rem; }
+.goal-flag { font-size: 2rem; margin-bottom: 1rem; }
+.goal-title { font-family: Arial Black, sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; color: var(--orange); line-height: 0.95; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+.goal-year { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 1.5rem; }
+.goal-desc { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.62); line-height: 1.75; margin-bottom: 1.5rem; }
+.goal-desc strong { color: var(--white); font-weight: 700; }
+.goal-facts { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.goal-facts li { font-size: 0.82rem; color: rgba(255,255,255,0.55); display: flex; gap: 0.6rem; align-items: flex-start; }
+.goal-facts li::before { content: '—'; color: var(--orange); flex-shrink: 0; }
+.goal-target { display: inline-block; margin-top: 1.8rem; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); border: 1px solid rgba(232,78,27,0.3); padding: 0.5rem 1rem; }
+
+/* PRESS */
+.press-sec { background: var(--black-2); }
+.press-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin-top: 2.5rem; }
+.pcard { background: var(--black-3); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 3px; transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+.pcard:hover { border-color: rgba(232,78,27,0.35); transform: translateY(-3px); }
+.psrc { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.65rem; }
+.phead { font-size: 0.88rem; font-weight: 700; color: var(--white); line-height: 1.4; margin-bottom: 0.45rem; }
+.pex { font-size: 0.74rem; color: var(--gray); line-height: 1.5; font-style: italic; }
+
+/* FOOTER */
+footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); padding: 5rem 3rem 2.5rem; }
+.ft-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 2rem; }
+.ft-brand h2 { font-family: Arial Black, sans-serif; font-size: 2.3rem; font-weight: 900; color: var(--orange); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+.ft-brand p { font-size: 0.85rem; color: var(--gray); font-style: italic; line-height: 1.65; max-width: 230px; }
+.ft-col-lbl { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem; }
+.ft-nav { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.ft-nav a { font-size: 0.87rem; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+.ft-nav a:hover { color: var(--white); }
+.ft-email { font-family: Arial Black, sans-serif; font-size: 0.92rem; font-weight: 900; color: var(--orange); margin-bottom: 0.45rem; word-break: break-all; }
+.ft-socials { display: flex; gap: 1.1rem; flex-wrap: wrap; margin-top: 0.9rem; }
+.ft-soc { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+.ft-soc:hover { color: var(--orange); border-color: var(--orange); }
+.ft-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.ft-copy { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
+.ft-num { font-family: Arial Black, sans-serif; font-size: 1.2rem; font-weight: 900; color: rgba(232,78,27,0.18); }
+
+/* PLACEHOLDER */
+.ph { width: 100%; height: 100%; background: var(--black-4); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; }
+.ph svg { width: 30px; height: 30px; fill: none; stroke: #333; stroke-width: 1.5; }
+.ph-txt { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #333; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+
+@media(max-width:960px){
+  nav{padding:1rem 1.5rem}
+  .nav-links,.nav-cta{display:none}
+  section{padding:4rem 1.5rem}
+  .about-grid,.kart-grid,.europe-grid{grid-template-columns:1fr}
+  .stats-band{grid-template-columns:repeat(2,1fr)}
+  .winter-cards{grid-template-columns:repeat(2,1fr)}
+  .press-grid{grid-template-columns:1fr}
+  .goals-grid{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr;gap:2rem}
+  .pgrid{grid-template-columns:1fr!important}
+  .chart-wrap{padding:0 1.5rem 5rem}
+  .results-table{font-size:0.74rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg class="nav-sig" viewBox="0 0 203.91 200.61" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="navLogoGrad1" x1="0" y1="100.3" x2="160.57" y2="100.3" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ff4d04"/>
+          <stop offset="1" stop-color="#ff794a"/>
+        </linearGradient>
+        <linearGradient id="navLogoGrad2" x1="29.88" y1="116.86" x2="203.91" y2="116.86" xlink:href="#navLogoGrad1"/>
+      </defs>
+      <path fill="url(#navLogoGrad1)" d="M27.58,122.87c-3.72,10.94-7.08,22.04-10.48,33.17-2.1,6.07-3.39,12.36-6.62,17.23-.14.08-.25,0-.3-.2-.08-.59-.07-1.16.03-1.88.36-3.21,2-10.51,4.22-17.91,1.28-4.3,2.61-8.59,3.92-12.89,2.7-11.02,11.21-27.64.25-32.79-5.57-2.65-15.62-2.36-17.97-7.23-5.59-13.53,27.98-41.42,37.29-49.69,12.37-10.11,25.49-20.32,40-27.44,13.47-6.34,28.32-7.48,42.13-12.43C130.6,7.35,141.31.74,152.42,0c19.68-.02-1.7,18.46-7.78,22.99-27.92,23.39-58.68,43.84-88.53,64.88-14.53,10.93-19.35,27.68-24.29,44.87-5.07,16.08-10.98,32-16.08,48.07-1.65,5.23-6.82,19.01-7.8,19.67-.44.46-.47-.4-.08-2.43.26-1.35.71-3.21,1.33-5.43,7.03-25.04,17.46-49.6,23.25-74.91,1.19-5.98.65-7.58-1.13-4.14-1.39,2.79-2.3,5.31-3.6,8.94l-.13.37ZM7.59,103.71c8.09.2,16.13-1.8,23.44-5.64.34-.18.67-.38.99-.61,1.44-1.05,2.77-2.28,4.11-3.44.96-.88,1.77-1.76,2.68-2.55,2.39-2.09,10.15-12.07,12.26-14.6.82-1.35,5.68-4.94,5.53-1.79-.22,1.15-7.86,9.05-8.51,10.05-3.53,5.77,1.22,3.53,4.08,1.49,35.31-22.53,69.18-47.89,100.11-76.09,4.2-4.41-4.27-3.84-6.66-3.41-13.3,2.41-24.44,10.31-36.14,16.58-24.62,13.96-49.68,28.88-72.23,45.9-.41,0-.38-.45.12-1.16,4.35-4.99,9.89-9.21,15.35-13,14.39-9.75,29.42-18.09,43.92-27.58,1.22-1.2.54-2.44-.79-2.81-10.64-3.07-29.37,12.11-38.66,17.8-17.31,12.71-33.42,27.15-47.07,43.74-2.74,3.96-6.42,7.76-7.79,12.45-.34,2.73,2.52,4.62,5,4.64l.26.02Z"/>
+      <path fill="url(#navLogoGrad2)" d="M93.03,123.11c-3.77,3.75-7.38,14.74-14.19,11.24-2.14-1.29-2.97-4.57-4.88-5.32-2.38-.9-4.87.74-7.06,1.61-3.66,1.71-7.36,2.03-9.91,4.83-6.21,10.4-9.8,22.34-15.47,33.17-2.09,4.78-5.46,11,3.63,7.9,6.68-2.21,16.19-7.62,22.47-11.05,3.38-1.93,5.6-2.7,9.06-3.82,5.73-1.75,11.16-4.89,17.04-6.56,10.55-2.88,20.87-7.45,31.82-8.82,2.89-.69,10.56.62,4.29,3.54-12.44,2.33-23.95,6.25-35.65,10.8-12.17,3.96-24.09,9.43-35.68,15.03-7.29,4.11-13.51,9.14-22.03,10.87-2.63.55-4.97.49-6-1.01-1.07-1.43-.47-4.38.41-6.26,2.05-4.3,4.04-8.48,6.38-12.84,5.47-12.24,11.44-24.39,17.12-36.58,9.53-21.36,18.55-42.23,25.47-64.44,2.16-4.46,1.62-18.54,7.7-18.53,1.12.01,2.9,1.25,3.25,2.12.5,1.02.32,1.98-.03,3.14-1.77,5.39-4.36,10.62-5.95,16.01-3.93,12.47-9.65,24.56-14.81,36.63-1.06,3.61-13.05,22.06-2.54,18.57,3.37-1.49,6.1-4.11,7.67-6.91,1.72-2.95,4.6-9.94,8.79-6.38,2.21,1.99.98,4.96.94,7.94.58,7.25,8.75-5.98,11.08-6.07,4.56-3.02,9.01,3.96,13.21.06,3.81-2.91,6.06-8.43,10.79-9.61,5.84.07,2.56,10.93,10.06,5.82,2.92-1.82,6.07-3.15,9.31-1.66,2.16.89,4.25,2.37,6.68,2.27,5.47-.57,9.71-6.34,15.65-6.12,16.2-.16,10.54,17.21,36.73,8.9,1.63-.42,3.86-1.36,5.32-.41,1.18,1.97-2.58,4.24-4.21,5.1-8.57,4.44-18.19,4-26.75-.15-4.52-1.66-6.96,2.65-9.06,6.03-3.19,4.59-8.07,9.22-14.08,8.36-5.23-.82-10.49-4.79-11.13-9.6-.58-2.51.54-6.24-1.82-7.95-7.39-2.19-9.43,9.8-15.63,11.22-1.74.44-3.6-.54-3.98-2.34-.65-2.15,1-7.56-.51-8.74-1.16-.65-2.49,1.25-3.19,2.09-3.3,3.52-5.04,18.37-12.06,14.74-2.6-1.69-1.25-7.84-3.99-9.03-1.58-.39-2.97.89-3.98,1.96l-.25.28ZM155.99,121.74c2.11-1.96,3.57-4.57,4.83-7.22,1.77-2.98.8-4.47-2.82-3.44-1.38.42-2.5,1.27-3.75,1.93-3.18,1.77-8.04,2.31-8.85,6.22-.55,7.13,6.51,6.9,10.35,2.73l.23-.22Z"/>
+    </svg>
+    <span class="nav-num">#53</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#karting">Karting</a></li>
+    <li><a href="#f4brazil">F4 Brazil</a></li>
+    <li><a href="#europe">Europe</a></li>
+    <li><a href="#goals">Goals</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-ghost">53</div>
+
+  <svg class="hero-sig" viewBox="0 0 203.91 200.61" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="heroLogoGrad1" x1="0" y1="100.3" x2="160.57" y2="100.3" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ff4d04"/>
+        <stop offset="1" stop-color="#ff794a"/>
+      </linearGradient>
+      <linearGradient id="heroLogoGrad2" x1="29.88" y1="116.86" x2="203.91" y2="116.86" xlink:href="#heroLogoGrad1"/>
+    </defs>
+    <path fill="url(#heroLogoGrad1)" d="M27.58,122.87c-3.72,10.94-7.08,22.04-10.48,33.17-2.1,6.07-3.39,12.36-6.62,17.23-.14.08-.25,0-.3-.2-.08-.59-.07-1.16.03-1.88.36-3.21,2-10.51,4.22-17.91,1.28-4.3,2.61-8.59,3.92-12.89,2.7-11.02,11.21-27.64.25-32.79-5.57-2.65-15.62-2.36-17.97-7.23-5.59-13.53,27.98-41.42,37.29-49.69,12.37-10.11,25.49-20.32,40-27.44,13.47-6.34,28.32-7.48,42.13-12.43C130.6,7.35,141.31.74,152.42,0c19.68-.02-1.7,18.46-7.78,22.99-27.92,23.39-58.68,43.84-88.53,64.88-14.53,10.93-19.35,27.68-24.29,44.87-5.07,16.08-10.98,32-16.08,48.07-1.65,5.23-6.82,19.01-7.8,19.67-.44.46-.47-.4-.08-2.43.26-1.35.71-3.21,1.33-5.43,7.03-25.04,17.46-49.6,23.25-74.91,1.19-5.98.65-7.58-1.13-4.14-1.39,2.79-2.3,5.31-3.6,8.94l-.13.37ZM7.59,103.71c8.09.2,16.13-1.8,23.44-5.64.34-.18.67-.38.99-.61,1.44-1.05,2.77-2.28,4.11-3.44.96-.88,1.77-1.76,2.68-2.55,2.39-2.09,10.15-12.07,12.26-14.6.82-1.35,5.68-4.94,5.53-1.79-.22,1.15-7.86,9.05-8.51,10.05-3.53,5.77,1.22,3.53,4.08,1.49,35.31-22.53,69.18-47.89,100.11-76.09,4.2-4.41-4.27-3.84-6.66-3.41-13.3,2.41-24.44,10.31-36.14,16.58-24.62,13.96-49.68,28.88-72.23,45.9-.41,0-.38-.45.12-1.16,4.35-4.99,9.89-9.21,15.35-13,14.39-9.75,29.42-18.09,43.92-27.58,1.22-1.2.54-2.44-.79-2.81-10.64-3.07-29.37,12.11-38.66,17.8-17.31,12.71-33.42,27.15-47.07,43.74-2.74,3.96-6.42,7.76-7.79,12.45-.34,2.73,2.52,4.62,5,4.64l.26.02Z"/>
+    <path fill="url(#heroLogoGrad2)" d="M93.03,123.11c-3.77,3.75-7.38,14.74-14.19,11.24-2.14-1.29-2.97-4.57-4.88-5.32-2.38-.9-4.87.74-7.06,1.61-3.66,1.71-7.36,2.03-9.91,4.83-6.21,10.4-9.8,22.34-15.47,33.17-2.09,4.78-5.46,11,3.63,7.9,6.68-2.21,16.19-7.62,22.47-11.05,3.38-1.93,5.6-2.7,9.06-3.82,5.73-1.75,11.16-4.89,17.04-6.56,10.55-2.88,20.87-7.45,31.82-8.82,2.89-.69,10.56.62,4.29,3.54-12.44,2.33-23.95,6.25-35.65,10.8-12.17,3.96-24.09,9.43-35.68,15.03-7.29,4.11-13.51,9.14-22.03,10.87-2.63.55-4.97.49-6-1.01-1.07-1.43-.47-4.38.41-6.26,2.05-4.3,4.04-8.48,6.38-12.84,5.47-12.24,11.44-24.39,17.12-36.58,9.53-21.36,18.55-42.23,25.47-64.44,2.16-4.46,1.62-18.54,7.7-18.53,1.12.01,2.9,1.25,3.25,2.12.5,1.02.32,1.98-.03,3.14-1.77,5.39-4.36,10.62-5.95,16.01-3.93,12.47-9.65,24.56-14.81,36.63-1.06,3.61-13.05,22.06-2.54,18.57,3.37-1.49,6.1-4.11,7.67-6.91,1.72-2.95,4.6-9.94,8.79-6.38,2.21,1.99.98,4.96.94,7.94.58,7.25,8.75-5.98,11.08-6.07,4.56-3.02,9.01,3.96,13.21.06,3.81-2.91,6.06-8.43,10.79-9.61,5.84.07,2.56,10.93,10.06,5.82,2.92-1.82,6.07-3.15,9.31-1.66,2.16.89,4.25,2.37,6.68,2.27,5.47-.57,9.71-6.34,15.65-6.12,16.2-.16,10.54,17.21,36.73,8.9,1.63-.42,3.86-1.36,5.32-.41,1.18,1.97-2.58,4.24-4.21,5.1-8.57,4.44-18.19,4-26.75-.15-4.52-1.66-6.96,2.65-9.06,6.03-3.19,4.59-8.07,9.22-14.08,8.36-5.23-.82-10.49-4.79-11.13-9.6-.58-2.51.54-6.24-1.82-7.95-7.39-2.19-9.43,9.8-15.63,11.22-1.74.44-3.6-.54-3.98-2.34-.65-2.15,1-7.56-.51-8.74-1.16-.65-2.49,1.25-3.19,2.09-3.3,3.52-5.04,18.37-12.06,14.74-2.6-1.69-1.25-7.84-3.99-9.03-1.58-.39-2.97.89-3.98,1.96l-.25.28ZM155.99,121.74c2.11-1.96,3.57-4.57,4.83-7.22,1.77-2.98.8-4.47-2.82-3.44-1.38.42-2.5,1.27-3.75,1.93-3.18,1.77-8.04,2.31-8.85,6.22-.55,7.13,6.51,6.9,10.35,2.73l.23-.22Z"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">🇧🇷 &nbsp;Official Driver — Van Amersfoort Racing · 2026 Career Highlights</div>
+    <h1 class="hero-name">Pedro<span class="wh">Lima</span></h1>
+    <p class="hero-sub">A career built lap by lap. &nbsp;<strong>From karting podiums to the youngest race winner in Brazilian F4 history.</strong></p>
+    <div class="hero-row">
+      <div class="hstat">
+        <span class="hstat-val">2<span class="o">×</span></span>
+        <span class="hstat-lbl">F4 Brazil Race Wins</span>
+      </div>
+      <div class="hdiv"></div>
+      <div class="hstat">
+        <span class="hstat-val">11</span>
+        <span class="hstat-lbl">Career Podiums</span>
+      </div>
+      <div class="hdiv"></div>
+      <div class="hstat">
+        <span class="hstat-val">3<span class="o">rd</span></span>
+        <span class="hstat-lbl">F4 Brazil 2025</span>
+      </div>
+      <div class="hdiv"></div>
+      <div>
+        <div class="hnext-lbl">Next Target</div>
+        <div class="hnext-val">F4 Macau · Nov 2026</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ti">Pedro Lima</span><span class="ts">✦</span>
+    <span class="ti">#53</span><span class="ts">✦</span>
+    <span class="ti">VAR Racing</span><span class="ts">✦</span>
+    <span class="ti">Youngest F4 Brazil Winner</span><span class="ts">✦</span>
+    <span class="ti">11 Career Podiums</span><span class="ts">✦</span>
+    <span class="ti">F4 Macau 2026</span><span class="ts">✦</span>
+    <span class="ti">FRECA 2027</span><span class="ts">✦</span>
+    <span class="ti">São Paulo · Brazil 🇧🇷</span><span class="ts">✦</span>
+    <span class="ti">Pedro Lima</span><span class="ts">✦</span>
+    <span class="ti">#53</span><span class="ts">✦</span>
+    <span class="ti">VAR Racing</span><span class="ts">✦</span>
+    <span class="ti">Youngest F4 Brazil Winner</span><span class="ts">✦</span>
+    <span class="ti">11 Career Podiums</span><span class="ts">✦</span>
+    <span class="ti">F4 Macau 2026</span><span class="ts">✦</span>
+    <span class="ti">FRECA 2027</span><span class="ts">✦</span>
+    <span class="ti">São Paulo · Brazil 🇧🇷</span><span class="ts">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid" style="grid-template-columns:1fr;max-width:800px">
+    <div>
+      <h2 class="about-h">Pedro<br><span class="wh">Lima</span></h2>
+      <p class="about-body">
+        Born <strong>April 19, 2010</strong> in São Paulo, Pedro Alves de Lima began karting at age 12. By <strong>15</strong>, he had become the <strong>youngest driver ever to win a race in BRB Fórmula 4 Brasil</strong> — taking pole, leading every lap, and crossing the line just 0.053s clear of the field at Velocitta.
+        <br><br>
+        He closed his rookie F4 Brazil season with <strong>11 podiums across 21 races</strong> and finished <strong>3rd overall</strong> in the championship. In 2026 he signed with Dutch powerhouse <strong>Van Amersfoort Racing</strong> to begin his European campaign, carrying car <strong>#53</strong> through the F4 Winter Series, Italian F4 and EuroF4.
+      </p>
+      <div class="about-meta">📅 &nbsp;April 19, 2010 &nbsp;·&nbsp; São Paulo, Brazil &nbsp;🇧🇷 &nbsp;·&nbsp; Karting since 2022</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="sc"><div class="sc-num">2<span class="o">×</span></div><div class="sc-desc">F4 Brazil Wins</div><div class="sc-sub">1st & 2nd career victories</div></div>
+  <div class="sc"><div class="sc-num">11</div><div class="sc-desc">Career Podiums</div><div class="sc-sub">in 21 F4 Brazil races</div></div>
+  <div class="sc"><div class="sc-num">0<span class="o">s</span>053</div><div class="sc-desc">Margin of Victory</div><div class="sc-sub">Velocitta — historic finish</div></div>
+  <div class="sc"><div class="sc-num">15<span class="o">y</span></div><div class="sc-desc">Youngest Ever Winner</div><div class="sc-sub">BRB F4 Brazil record</div></div>
+</div>
+
+<!-- KARTING -->
+<section class="kart-sec" id="karting">
+  <span class="lbl">Foundations</span>
+  <h2 class="sec-title">Karting<em>2023 — 2024</em></h2>
+  <div class="kart-grid" style="grid-template-columns:1fr;max-width:800px">
+    <div>
+      <ul class="kart-list">
+        <li class="ki"><span class="ki-icon">🏆</span><div><strong>Copa Brasil de Kart — Champion</strong><span>2024</span></div></li>
+        <li class="ki"><span class="ki-icon">🏆</span><div><strong>Open do Brasileiro de Kart — Champion</strong><span>2023</span></div></li>
+        <li class="ki"><span class="ki-icon">🥈</span><div><strong>Brazilian Kart Championship — Runner-up</strong><span>2023</span></div></li>
+        <li class="ki"><span class="ki-icon">🥈</span><div><strong>Troféu Ayrton Senna de Kart — Runner-up</strong><span>2024</span></div></li>
+        <li class="ki"><span class="ki-icon">🌎</span><div><strong>SKUSA SuperNationals — 2nd in Qualifying</strong><span>Las Vegas, USA · 2024</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- F4 BRAZIL -->
+<section id="f4brazil">
+  <div class="f4b-head">
+    <h2 class="f4b-h">Formula<br>4<span class="sub-em">Brazil</span></h2>
+    <div class="f4b-year">2025 🇧🇷</div>
+  </div>
+  <p class="sec-intro">Pedro's rookie season in Brazil's FIA-sanctioned junior single-seater category. The youngest driver on the grid finished <strong>3rd in the championship</strong>, claimed <strong>two race wins</strong>, his first pole position, and 11 podiums across 21 starts — racing for Starrett Bassani F4.</p>
+
+  <div class="feito">
+    <div class="ftag">⭐ Historic Milestone — Velocitta, Round 3</div>
+    <p>Starting from <strong>pole position</strong>, Pedro led every lap of Race 3 and held off reigning championship leader Heitor Dall'Agnol to the flag, winning by just <strong>0.053 seconds</strong> — also picking up the point for fastest lap. The result made him the <strong>youngest driver ever to win a BRB Fórmula 4 Brasil race.</strong></p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="results-table">
+      <thead>
+        <tr><th>Round</th><th>Circuit</th><th>Best Result</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Round 1</td><td>Interlagos, São Paulo</td><td>9th</td><td>Season debut, youngest driver on the grid</td></tr>
+        <tr><td>Round 2</td><td>Velocitta, Mogi Guaçu</td><td class="pos-podium">3rd</td><td>First career podium</td></tr>
+        <tr><td>Round 3</td><td>Velocitta, Mogi Guaçu</td><td class="pos-win">1st</td><td>Pole + win, margin 0s053 — youngest ever F4 Brazil winner</td></tr>
+        <tr><td>Round 4</td><td>Interlagos, São Paulo</td><td class="pos-podium">3rd</td><td>Podium during F1 São Paulo GP preliminary event</td></tr>
+        <tr><td>Round 5</td><td>Interlagos, São Paulo</td><td class="pos-win">1st</td><td>2nd career win — crucial result in title run-in</td></tr>
+        <tr><td>Final Round</td><td>Interlagos, São Paulo</td><td class="pos-podium">3rd</td><td>Closed season 3rd overall in points</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="press-tags">
+    <span class="press-tag-lbl">Covered by:</span>
+    <span class="ptag">UOL / Motorsport</span>
+    <span class="ptag">Grande Prêmio</span>
+    <span class="ptag">Autoracing</span>
+    <span class="ptag">Band / Bandsports</span>
+    <span class="ptag">Velocidade no Sangue</span>
+  </div>
+</section>
+
+<!-- CHART -->
+<div class="chart-wrap">
+  <div class="chart-box">
+    <div class="chart-h"><span>Race-by-Race</span> Trajectory</div>
+    <div class="chart-sub">Finishing positions — F4 Brazil 2025 Season</div>
+    <svg viewBox="0 0 900 310" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg">
+      <defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <line x1="36" y1="26" x2="890" y2="26" stroke="#1c1c1c" stroke-width="1"/>
+      <line x1="36" y1="60" x2="890" y2="60" stroke="#1c1c1c" stroke-width="1"/>
+      <line x1="36" y1="94" x2="890" y2="94" stroke="#1c1c1c" stroke-width="1"/>
+      <line x1="36" y1="128" x2="890" y2="128" stroke="#1c1c1c" stroke-width="1"/>
+      <line x1="36" y1="196" x2="890" y2="196" stroke="#1c1c1c" stroke-width="1"/>
+      <line x1="36" y1="264" x2="890" y2="264" stroke="#1c1c1c" stroke-width="1"/>
+      <text x="30" y="30" fill="#444" font-size="10" text-anchor="end" font-family="Arial">P1</text>
+      <text x="30" y="64" fill="#444" font-size="10" text-anchor="end" font-family="Arial">P3</text>
+      <text x="30" y="98" fill="#444" font-size="10" text-anchor="end" font-family="Arial">P5</text>
+      <text x="30" y="132" fill="#444" font-size="10" text-anchor="end" font-family="Arial">P7</text>
+      <text x="30" y="200" fill="#444" font-size="10" text-anchor="end" font-family="Arial">P9</text>
+      <text x="30" y="268" fill="#444" font-size="10" text-anchor="end" font-family="Arial">P13</text>
+      <line x1="180" y1="20" x2="180" y2="272" stroke="#222" stroke-width="1" stroke-dasharray="3,5"/>
+      <line x1="326" y1="20" x2="326" y2="272" stroke="#222" stroke-width="1" stroke-dasharray="3,5"/>
+      <line x1="472" y1="20" x2="472" y2="272" stroke="#222" stroke-width="1" stroke-dasharray="3,5"/>
+      <line x1="618" y1="20" x2="618" y2="272" stroke="#222" stroke-width="1" stroke-dasharray="3,5"/>
+      <line x1="764" y1="20" x2="764" y2="272" stroke="#222" stroke-width="1" stroke-dasharray="3,5"/>
+      <polyline points="60,162 100,230 140,111 210,94 255,60 295,77 360,77 405,43 450,26 515,77 560,77 600,111 645,94 680,60 714,77 780,128 820,26 855,77 888,60" fill="none" stroke="#00e5b4" stroke-width="2.3" filter="url(#glow)"/>
+      <circle cx="60" cy="162" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="100" cy="230" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="140" cy="111" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="210" cy="94" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="255" cy="60" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="295" cy="77" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="360" cy="77" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="405" cy="43" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="450" cy="26" r="9" fill="#E84E1B" stroke="#E84E1B" stroke-width="2" filter="url(#glow)"/>
+      <circle cx="450" cy="26" r="4" fill="#fff"/>
+      <circle cx="515" cy="77" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="560" cy="77" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="600" cy="111" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="645" cy="94" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="680" cy="60" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="714" cy="77" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="780" cy="128" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="820" cy="26" r="9" fill="#f5c800" stroke="#f5c800" stroke-width="2" filter="url(#glow)"/>
+      <circle cx="820" cy="26" r="4" fill="#fff"/>
+      <circle cx="855" cy="77" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <circle cx="888" cy="60" r="5" fill="#111" stroke="#00e5b4" stroke-width="2"/>
+      <rect x="362" y="2" width="120" height="18" rx="2" fill="#E84E1B"/>
+      <text x="422" y="15" text-anchor="middle" fill="#000" font-size="9" font-weight="bold" font-family="Arial">1st Win — Velocitta</text>
+      <line x1="450" y1="20" x2="450" y2="26" stroke="#E84E1B" stroke-width="1.5"/>
+      <rect x="764" y="2" width="110" height="18" rx="2" fill="#f5c800"/>
+      <text x="819" y="15" text-anchor="middle" fill="#000" font-size="9" font-weight="bold" font-family="Arial">2nd Win — Late Season</text>
+      <line x1="820" y1="20" x2="820" y2="26" stroke="#f5c800" stroke-width="1.5"/>
+      <text x="100" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Round 1</text>
+      <text x="253" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Round 2</text>
+      <text x="405" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Velocitta</text>
+      <text x="557" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Round 4</text>
+      <text x="684" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">F1 Prelim</text>
+      <text x="820" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Round 5</text>
+      <text x="875" y="286" fill="#444" font-size="9" text-anchor="middle" font-family="Arial">Final</text>
+    </svg>
+  </div>
+</div>
+
+<!-- EUROPE -->
+<section class="europe-sec" id="europe">
+  <div class="europe-grid" style="grid-template-columns:1fr;max-width:800px">
+    <div>
+      <span class="lbl">European Campaign 2026 🇮🇹</span>
+      <h2 class="sec-title">VAR<em>Van Amersfoort Racing</em></h2>
+      <div class="var-block">
+        <div class="var-badge">VAR</div>
+        <div class="var-info">
+          <strong>Van Amersfoort Racing</strong>
+          <span>Official driver · Europe 2026</span>
+        </div>
+      </div>
+      <p style="font-size:0.96rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.62);margin-bottom:2.5rem;max-width:460px">Following his breakout rookie year in Brazil, Pedro signed with Dutch single-seater powerhouse Van Amersfoort Racing for a full European campaign in 2026 — racing car #53 across three championships.</p>
+      <ul class="camp-list">
+        <li class="camp-item"><span class="camp-flag">🇵🇹🇪🇸</span><div class="camp-info"><strong>F4 Winter Series</strong><em>Completed — Jan to Mar 2026</em><span>10th overall, 62 points, four 4th-place finishes across 15 races</span></div></li>
+        <li class="camp-item"><span class="camp-flag">🇮🇹</span><div class="camp-info"><strong>Italian F4 Championship</strong><em>May – Oct 2026</em><span>World-reference category for junior single-seaters</span></div></li>
+        <li class="camp-item"><span class="camp-flag">🇮🇹</span><div class="camp-info"><strong>EuroF4 (E4) Championship</strong><em>May – Oct 2026</em><span>Parallel series run alongside the Italian F4 calendar</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WINTER SERIES RESULTS -->
+<section class="winter-sec">
+  <span class="lbl">F4 Winter Series 2026 — Final Standings</span>
+  <h2 class="sec-title">First Season<em>in Europe</em></h2>
+  <p class="sec-intro">Pedro's European debut spanned five rounds across Portugal and Spain against a 45-driver field — his first taste of FIA-graded European competition, in mixed wet and dry conditions.</p>
+  <div class="winter-cards">
+    <div class="wc"><div class="wc-res">23rd</div><div class="wc-ev">Estoril</div><div class="wc-cir">Portugal</div><div class="wc-cond rain">🌧 Wet</div></div>
+    <div class="wc"><div class="wc-res">Top 10</div><div class="wc-ev">Portimão</div><div class="wc-cir">Portugal</div><div class="wc-cond rain">🌧 Wet</div></div>
+    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Valencia</div><div class="wc-cir">Spain</div><div class="wc-cond sun">☀ Dry</div></div>
+    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Aragón</div><div class="wc-cir">Spain</div><div class="wc-cond sun">☀ Dry</div></div>
+    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Barcelona</div><div class="wc-cir">Spain</div><div class="wc-cond sun">☀ Dry</div></div>
+  </div>
+  <div class="final-standing">
+    <div class="fs-num">10<span style="font-size:1.4rem">th</span></div>
+    <div class="fs-text">
+      <strong>Final Championship Standing — 62 points</strong>
+      <span>15 races completed · four 4th-place finishes · narrowly missed his first European podium by inches at Valencia</span>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-sec">
+  <p class="bq">"I don't see myself as extremely talented — but I work extremely hard."</p>
+  <p class="qa">Pedro Lima &nbsp;·&nbsp; #53 &nbsp;·&nbsp; VAR Racing &nbsp;·&nbsp; after his first F4 Brazil win, Velocitta 2025</p>
+</div>
+
+<!-- GOALS -->
+<section class="goals-sec" id="goals">
+  <svg class="goals-watermark" viewBox="0 0 203.91 200.61" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="goalsLogoGrad1" x1="0" y1="100.3" x2="160.57" y2="100.3" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ff4d04"/>
+        <stop offset="1" stop-color="#ff794a"/>
+      </linearGradient>
+      <linearGradient id="goalsLogoGrad2" x1="29.88" y1="116.86" x2="203.91" y2="116.86" xlink:href="#goalsLogoGrad1"/>
+    </defs>
+    <path fill="url(#goalsLogoGrad1)" d="M27.58,122.87c-3.72,10.94-7.08,22.04-10.48,33.17-2.1,6.07-3.39,12.36-6.62,17.23-.14.08-.25,0-.3-.2-.08-.59-.07-1.16.03-1.88.36-3.21,2-10.51,4.22-17.91,1.28-4.3,2.61-8.59,3.92-12.89,2.7-11.02,11.21-27.64.25-32.79-5.57-2.65-15.62-2.36-17.97-7.23-5.59-13.53,27.98-41.42,37.29-49.69,12.37-10.11,25.49-20.32,40-27.44,13.47-6.34,28.32-7.48,42.13-12.43C130.6,7.35,141.31.74,152.42,0c19.68-.02-1.7,18.46-7.78,22.99-27.92,23.39-58.68,43.84-88.53,64.88-14.53,10.93-19.35,27.68-24.29,44.87-5.07,16.08-10.98,32-16.08,48.07-1.65,5.23-6.82,19.01-7.8,19.67-.44.46-.47-.4-.08-2.43.26-1.35.71-3.21,1.33-5.43,7.03-25.04,17.46-49.6,23.25-74.91,1.19-5.98.65-7.58-1.13-4.14-1.39,2.79-2.3,5.31-3.6,8.94l-.13.37ZM7.59,103.71c8.09.2,16.13-1.8,23.44-5.64.34-.18.67-.38.99-.61,1.44-1.05,2.77-2.28,4.11-3.44.96-.88,1.77-1.76,2.68-2.55,2.39-2.09,10.15-12.07,12.26-14.6.82-1.35,5.68-4.94,5.53-1.79-.22,1.15-7.86,9.05-8.51,10.05-3.53,5.77,1.22,3.53,4.08,1.49,35.31-22.53,69.18-47.89,100.11-76.09,4.2-4.41-4.27-3.84-6.66-3.41-13.3,2.41-24.44,10.31-36.14,16.58-24.62,13.96-49.68,28.88-72.23,45.9-.41,0-.38-.45.12-1.16,4.35-4.99,9.89-9.21,15.35-13,14.39-9.75,29.42-18.09,43.92-27.58,1.22-1.2.54-2.44-.79-2.81-10.64-3.07-29.37,12.11-38.66,17.8-17.31,12.71-33.42,27.15-47.07,43.74-2.74,3.96-6.42,7.76-7.79,12.45-.34,2.73,2.52,4.62,5,4.64l.26.02Z"/>
+    <path fill="url(#goalsLogoGrad2)" d="M93.03,123.11c-3.77,3.75-7.38,14.74-14.19,11.24-2.14-1.29-2.97-4.57-4.88-5.32-2.38-.9-4.87.74-7.06,1.61-3.66,1.71-7.36,2.03-9.91,4.83-6.21,10.4-9.8,22.34-15.47,33.17-2.09,4.78-5.46,11,3.63,7.9,6.68-2.21,16.19-7.62,22.47-11.05,3.38-1.93,5.6-2.7,9.06-3.82,5.73-1.75,11.16-4.89,17.04-6.56,10.55-2.88,20.87-7.45,31.82-8.82,2.89-.69,10.56.62,4.29,3.54-12.44,2.33-23.95,6.25-35.65,10.8-12.17,3.96-24.09,9.43-35.68,15.03-7.29,4.11-13.51,9.14-22.03,10.87-2.63.55-4.97.49-6-1.01-1.07-1.43-.47-4.38.41-6.26,2.05-4.3,4.04-8.48,6.38-12.84,5.47-12.24,11.44-24.39,17.12-36.58,9.53-21.36,18.55-42.23,25.47-64.44,2.16-4.46,1.62-18.54,7.7-18.53,1.12.01,2.9,1.25,3.25,2.12.5,1.02.32,1.98-.03,3.14-1.77,5.39-4.36,10.62-5.95,16.01-3.93,12.47-9.65,24.56-14.81,36.63-1.06,3.61-13.05,22.06-2.54,18.57,3.37-1.49,6.1-4.11,7.67-6.91,1.72-2.95,4.6-9.94,8.79-6.38,2.21,1.99.98,4.96.94,7.94.58,7.25,8.75-5.98,11.08-6.07,4.56-3.02,9.01,3.96,13.21.06,3.81-2.91,6.06-8.43,10.79-9.61,5.84.07,2.56,10.93,10.06,5.82,2.92-1.82,6.07-3.15,9.31-1.66,2.16.89,4.25,2.37,6.68,2.27,5.47-.57,9.71-6.34,15.65-6.12,16.2-.16,10.54,17.21,36.73,8.9,1.63-.42,3.86-1.36,5.32-.41,1.18,1.97-2.58,4.24-4.21,5.1-8.57,4.44-18.19,4-26.75-.15-4.52-1.66-6.96,2.65-9.06,6.03-3.19,4.59-8.07,9.22-14.08,8.36-5.23-.82-10.49-4.79-11.13-9.6-.58-2.51.54-6.24-1.82-7.95-7.39-2.19-9.43,9.8-15.63,11.22-1.74.44-3.6-.54-3.98-2.34-.65-2.15,1-7.56-.51-8.74-1.16-.65-2.49,1.25-3.19,2.09-3.3,3.52-5.04,18.37-12.06,14.74-2.6-1.69-1.25-7.84-3.99-9.03-1.58-.39-2.97.89-3.98,1.96l-.25.28ZM155.99,121.74c2.11-1.96,3.57-4.57,4.83-7.22,1.77-2.98.8-4.47-2.82-3.44-1.38.42-2.5,1.27-3.75,1.93-3.18,1.77-8.04,2.31-8.85,6.22-.55,7.13,6.51,6.9,10.35,2.73l.23-.22Z"/>
+  </svg>
+  <span class="lbl">What's Next</span>
+  <h2 class="sec-title">The Road<em>Ahead</em></h2>
+  <p class="sec-intro">Two defining targets anchor Pedro's path toward Formula 1's junior ladder — a global showcase event in Asia, and a step up to one of Europe's most competitive Formula Regional categories.</p>
+
+  <div class="goals-grid">
+    <div class="goal-card">
+      <div class="goal-num">TARGET 01</div>
+      <div class="goal-flag">🇲🇴</div>
+      <div class="goal-title">F4 Macau</div>
+      <div class="goal-year">November 2026</div>
+      <p class="goal-desc">One of the most prestigious invitational events on the junior single-seater calendar, raced on the legendary <strong>Guia street circuit</strong> — a proving ground that has launched the careers of multiple future F1 drivers.</p>
+      <ul class="goal-facts">
+        <li>Invitational grid featuring top F4 talent from championships worldwide</li>
+        <li>Raced on the same street circuit as the iconic Macau Grand Prix</li>
+        <li>A statement event to close out Pedro's first full season in Europe</li>
+      </ul>
+      <span class="goal-target">Confirmed Objective · 2026</span>
+    </div>
+
+    <div class="goal-card">
+      <div class="goal-num">TARGET 02</div>
+      <div class="goal-flag">🇪🇺</div>
+      <div class="goal-title">FRECA</div>
+      <div class="goal-year">2027 Season</div>
+      <p class="goal-desc">The step up to <strong>Formula Regional European Championship</strong> — the natural progression from F4, and one of the clearest pathways into FIA Formula 3 and the Road to F1.</p>
+      <ul class="goal-facts">
+        <li>Higher-powered, higher-downforce cars closer to F3 specification</li>
+        <li>Grid regularly featuring future F2 and F1-bound prospects</li>
+        <li>Planned progression following a full 2026 European F4 campaign</li>
+      </ul>
+      <span class="goal-target">2027 Objective</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="press-sec">
+  <span class="lbl">Media Coverage</span>
+  <h2 class="sec-title">In<br>The<em>Press</em></h2>
+  <div class="press-grid">
+    <div class="pcard"><div class="psrc">UOL / Motorsport</div><div class="phead">Oakberry Bassani F4 confirms Pedro Lima for the 2025 F4 Brazil season</div><div class="pex">At just 14, the driver will contest his first season in the country's top single-seater junior category</div></div>
+    <div class="pcard"><div class="psrc">Grande Prêmio</div><div class="phead">Lima beats Dall'Agnol by 0.053s to win Race 3 of F4 Brazil at Velocitta</div><div class="pex">Started from pole, led every lap, and held off the championship leader to the chequered flag</div></div>
+    <div class="pcard"><div class="psrc">Autoracing</div><div class="phead">Pedro Lima makes history as youngest-ever F4 Brazil race winner</div><div class="pex">11 podiums in 21 races, 3rd overall — closing one of the standout rookie seasons of the year</div></div>
+    <div class="pcard"><div class="psrc">Autoracing · 2026</div><div class="phead">Pedro Lima signs with Van Amersfoort Racing for full European campaign</div><div class="pex">The 15-year-old confirms his move to Europe after a breakout debut season in Brazil</div></div>
+    <div class="pcard"><div class="psrc">Velocidade no Sangue</div><div class="phead">Pedro Lima fights for the podium, closes Valencia round with two top-5 finishes</div><div class="pex">A 4th, 5th and 8th place across three races marked his strongest weekend yet in Europe</div></div>
+    <div class="pcard"><div class="psrc">Autoracing · Mar 2026</div><div class="phead">Pedro Lima closes F4 Winter Series campaign 10th overall</div><div class="pex">62 points across 15 races in his maiden European season, setting up the Italian F4 and EuroF4 push</div></div>
+  </div>
+</section>
+
+<script>
+const kIs = document.querySelectorAll('.ki');
+const kObs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('vis'), i * 90); kObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+kIs.forEach(el => kObs.observe(el));
+
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.background = window.scrollY > 60 ? 'rgba(0,0,0,0.97)' : 'linear-gradient(to bottom,rgba(0,0,0,0.92) 0%,transparent 100%)';
+}, { passive: true });
+
+const ghost = document.querySelector('.hero-ghost');
+window.addEventListener('scroll', () => {
+  if (ghost) ghost.style.transform = `translateY(${window.scrollY * 0.16}px)`;
+}, { passive: true });
+</script>
+</body>
+</html>
