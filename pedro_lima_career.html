@@ -160,20 +160,32 @@ section { padding: 7rem 3rem; }
 .europe-photo { height: 500px; background: var(--black-4); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 
 /* WINTER SERIES RESULTS */
-.winter-sec { background: var(--black-3); }
-.winter-cards { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: rgba(255,255,255,0.04); margin-top: 2.5rem; border-radius: 3px; overflow: hidden; }
-.wc { background: var(--black-3); padding: 1.8rem 1.1rem; text-align: center; transition: background 0.2s; }
-.wc:hover { background: rgba(232,78,27,0.07); }
-.wc-res { font-family: Arial Black, sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--orange); margin-bottom: 0.35rem; }
-.wc-ev { font-size: 0.8rem; font-weight: 700; color: var(--white); margin-bottom: 0.12rem; }
-.wc-cir { font-size: 0.7rem; color: var(--gray); font-style: italic; margin-bottom: 0.45rem; }
-.wc-cond { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.rain { color: var(--blue); }
-.sun { color: var(--yellow); }
-.final-standing { background: var(--black); border: 1px solid rgba(232,78,27,0.25); padding: 2rem; margin-top: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-.fs-num { font-family: Arial Black, sans-serif; font-size: 3.5rem; font-weight: 900; color: var(--orange); line-height: 1; }
-.fs-text strong { display: block; font-size: 1rem; color: var(--white); font-weight: 700; margin-bottom: 0.2rem; }
-.fs-text span { font-size: 0.85rem; color: var(--gray); }
+<section class="winter-sec">
+  <span class="lbl">F4 Winter Series 2026 — Final Standings</span>
+  <h2 class="sec-title">Trial by<em>Weather</em></h2>
+  <p class="sec-intro">Pedro's European debut threw everything at him — torrential rain in Portugal, gale-force winds in Spain, and a season finale swinging between bone-dry and soaking wet. Across five rounds and 45 rivals, he never stopped fighting forward.</p>
+
+  <div class="feito" style="border-left-color:var(--blue)">
+    <div class="ftag" style="color:var(--blue)">🌧 Weather Battle — Estoril & Portimão</div>
+    <p>Pedro's European debut came under a relentless downpour. In Race 2 at Estoril he carved from <strong>31st on the grid to 13th</strong> on slick tyres on a soaked track — then in Race 3, with the rain still falling, he climbed from <strong>18th to 9th</strong> behind the safety car, reading the chaos better than almost anyone on the grid. Two rounds later at Portimão: more rain, more recoveries, more points banked in brutal conditions.</p>
+  </div>
+
+  <div class="winter-cards">
+    <div class="wc"><div class="wc-res">23rd</div><div class="wc-ev">Estoril</div><div class="wc-cir">Portugal</div><div class="wc-cond rain">🌧 Heavy Rain</div></div>
+    <div class="wc"><div class="wc-res">Top 10</div><div class="wc-ev">Portimão</div><div class="wc-cir">Portugal</div><div class="wc-cond rain">🌧 Wet Track</div></div>
+    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Valencia</div><div class="wc-cir">Spain</div><div class="wc-cond wind">💨 Gale-Force Wind</div></div>
+    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Aragón</div><div class="wc-cir">Spain</div><div class="wc-cond sun">☀ Dry</div></div>
+    <div class="wc"><div class="wc-res">4th</div><div class="wc-ev">Barcelona</div><div class="wc-cir">Spain</div><div class="wc-cond mixed">⛅ Mixed Conditions</div></div>
+  </div>
+
+  <div class="final-standing">
+    <div class="fs-num">10<span style="font-size:1.4rem">th</span></div>
+    <div class="fs-text">
+      <strong>Final Championship Standing — 62 points</strong>
+      <span>15 races completed across rain, wind and dry conditions · four 4th-place finishes · narrowly missed his first European podium by inches at Valencia · charged ten positions in a single race at Barcelona</span>
+    </div>
+  </div>
+</section>
 
 /* QUOTE */
 .quote-sec { background: var(--orange); padding: 5rem 3rem; text-align: center; }
@@ -243,6 +255,25 @@ footer { background: var(--black); border-top: 1px solid rgba(232,78,27,0.15); p
   .pgrid{grid-template-columns:1fr!important}
   .chart-wrap{padding:0 1.5rem 5rem}
   .results-table{font-size:0.74rem}
+
+  /* HERO MOBILE FIX */
+  .hero{ height:100svh; min-height:600px; align-items:flex-start; }
+  .hero-content{ padding:7rem 1.5rem 3rem; }
+  .hero-sig{ width:clamp(90px,22vw,140px); top:6%; left:5%; }
+  .hero-eyebrow{ font-size:0.58rem; letter-spacing:0.22em; margin-bottom:0.6rem; }
+  .hero-name{ font-size:clamp(3.2rem,16vw,5.5rem); margin-bottom:0.8rem; }
+  .hero-sub{ font-size:0.85rem; margin-bottom:1.8rem; }
+  .hero-row{ gap:1.5rem; }
+  .hstat-val{ font-size:2.1rem; }
+  .hnext-val{ font-size:1.1rem; }
+  .scroll-hint{ bottom:1rem; }
+}
+
+@media(max-width:480px){
+  .hero-name{ font-size:clamp(2.6rem,15vw,4rem); }
+  .hero-row{ gap:1.1rem; }
+  .hdiv{ display:none; }
+}
 }
 </style>
 </head>
